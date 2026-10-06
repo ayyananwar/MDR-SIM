@@ -1,0 +1,39 @@
+{
+  "name": "mdr-sim",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "dataset:generate": "tsx src/datasets/generator.ts",
+    "test:research": "tsx tests/phase1.test.ts && tsx tests/phase2.test.ts && tsx tests/phase3.test.ts && tsx tests/phase4.test.ts && tsx tests/phase5.test.ts && tsx tests/phase6.test.ts && tsx tests/phase7.test.ts && npm run test:paper",
+    "campaign:confirmatory": "tsx src/campaign/confirmatoryCampaign.ts",
+    "test:paper": "tsx tests/paper.test.ts",
+    "campaign:paper": "tsx src/campaign/paperCampaign.ts",
+    "campaign:diagnostic": "tsx src/campaign/radiusDiagnostic.ts",
+    "campaign:legacy": "tsx src/campaign/runFinalCampaign.ts",
+    "verify:paper": "node scripts/verifyPaper.cjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.5.1",
+    "@vitejs/plugin-react": "^6.0.5",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.19.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "framer-motion": "^12.43.0",
+    "lucide-react": "^1.28.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
+    "recharts": "^3.10.1",
+    "zustand": "^5.0.14"
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "file": "paper/Contact_Reconstruction_Research_Paper.docx",
+    "sha256": "a35cda65879060971553848bc736a52bd1c84782ff5ed66bac7e83573a938933"
+  },
+  {
+    "file": "paper/Contact_Reconstruction_Research_Paper.md",
+    "sha256": "66aa1760f6b8ed8c74f6017bcf12f3193e15e6a74c1d6fb9d639a90e33b00f50"
+  },
+  {
+    "file": "paper/manuscript_content.md",
+    "sha256": "31d8a62c4085b4cc31a5838dc1cb0cc4380bab5267eb142eea3d0bace6871f70"
+  },
+  {
+    "file": "paper/manuscript_tables.json",
+    "sha256": "55f83bc825890d4196aa1ee6a4aaef07aeac68525fae3770579013db5b6ad38f"
+  },
+  {
+    "file": "paper/references.json",
+    "sha256": "55709b5d6a38908a2f2323bae0a84cac54af58eddc796943c311a3adc6e88558"
+  },
+  {
+    "file": "paper/build_manuscript.py",
+    "sha256": "2406fb8a4832d42ad257e8224f4000ae706ab16a3701b5a1b012cfc869ba1523"
+  },
+  {
+    "file": "paper/build_figures.py",
+    "sha256": "4ebc7d3aa2d40fe345dfcca6293a8e5dd97fcbe44b8a8ad99fc2b30df40bb2b8"
+  },
+  {
+    "file": "paper/check_manuscript.py",
+    "sha256": "c4267ffb59ef3a7d979c0f66eb2a2adf253ec0c884373ee12e255729f79d5efe"
+  },
+  {
+    "file": "paper/validation.json",
+    "sha256": "0d558bc6388091b1e1588fad29105a46ba81422da266f05d52b83843c695d1ca"
+  },
+  {
+    "file": "paper/SUBMISSION_CHECKLIST.md",
+    "sha256": "0ea18e4bae89a67d4f1567bb9d1694ea4d0897c7d65e0d3ae8c1fa369301dcf9"
+  },
+  {
+    "file": "paper/figures/floorplan.pdf",
+    "sha256": "cdfe581d6af129874e2001508d1290df3e5a7125d398301a50387dea1d1cbe41"
+  },
+  {
+    "file": "paper/figures/floorplan.png",
+    "sha256": "ad46903c1258d121300e1480c3796e40dd52a35361c3d12e5b5da3427ae428fa"
+  },
+  {
+    "file": "paper/figures/generalization.pdf",
+    "sha256": "8d7859831a0ca25418259130630821dfbfe31a48addc35b6d178bc21cb6eb915"
+  },
+  {
+    "file": "paper/figures/generalization.png",
+    "sha256": "6c5a47e9a2dd36c2f65fd7d7b7d1058c21d11e5bac5eac1c67e57649fb56b373"
+  },
+  {
+    "file": "paper/figures/paired-effects.pdf",
+    "sha256": "e56549f02b4d8bb28502e1cbc9f49bbc9792a3fff8af0b8d814ea3354b7b0470"
+  },
+  {
+    "file": "paper/figures/paired-effects.png",
+    "sha256": "153a44b80146fa35e27f3bd47f90a1d6d359e48639c3317c15faac3250208bf0"
+  },
+  {
+    "file": "paper/figures/reliability.pdf",
+    "sha256": "3ef7d89450f082348c71faa57a2b55fb2654f510f1af3e189ab13ad9757afa2e"
+  },
+  {
+    "file": "paper/figures/reliability.png",
+    "sha256": "76a7d2ad721ade525dc2b033b4b911e84ff1dcbebe41caa862ec4798644837e7"
+  },
+  {
+    "file": "results/ml-v7-models-complete/selection.json",
+    "sha256": "17036d30f35b5515a09aa9afa29c8f44948d44c6e2e944a2fc239469437ba91d"
+  },
+  {
+    "file": "results/ml-v7-evaluation/summary.json",
+    "sha256": "030561e1698b4794ead775736bc5acc81790940cb4e22dfa07462e5c710ca473"
+  },
+  {
+    "file": "results/ml-v7-evaluation/contrasts.json",
+    "sha256": "2df17e0e2480a0b41bfb788121e79426c8ffe4cd7d24f71253053a37ebd062b8"
+  },
+  {
+    "file": "results/finalization-v7-20261006/audit.json",
+    "sha256": "aae5fdbd362db2694dc9d42b880eee953978a783896dac6d180358042a949c65"
+  }
+]

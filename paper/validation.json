@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "primaryRows": 7,
+  "numericOutcomeTables": 5,
+  "features": 29,
+  "tables": 12,
+  "figures": 4,
+  "equations": 11,
+  "references": 16,
+  "frozenPaperSourcesUnchanged": 8,
+  "scope": "Table/source consistency and document structure; not clinical or hardware validation."
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "number": 1,
+    "authors": "P. Vanhems et al.",
+    "title": "Estimating Potential Infection Transmission Routes in Hospital Wards Using Wearable Proximity Sensors",
+    "venue": "PLoS ONE, 8(9), e73970, 2013",
+    "url": "https://doi.org/10.1371/journal.pone.0073970",
+    "formatted": "[1] P. Vanhems et al, “Estimating Potential Infection Transmission Routes in Hospital Wards Using Wearable Proximity Sensors,” PLoS ONE, vol. 8, no. 9, Art. no. e73970, 2013, doi: 10.1371/journal.pone.0073970."
+  },
+  {
+    "number": 2,
+    "authors": "D. J. Leith and S. Farrell",
+    "title": "Coronavirus Contact Tracing: Evaluating the Potential of Using Bluetooth Received Signal Strength for Proximity Detection",
+    "venue": "arXiv:2006.06822, 2020",
+    "url": "https://arxiv.org/abs/2006.06822",
+    "formatted": "[2] D. J. Leith and S. Farrell, “Coronavirus Contact Tracing: Evaluating the Potential of Using Bluetooth Received Signal Strength for Proximity Detection,” arXiv:2006.06822, 2020. [Online]. Available: https://arxiv.org/abs/2006.06822"
+  },
+  {
+    "number": 3,
+    "authors": "Bluetooth SIG",
+    "title": "Direction Finding",
+    "venue": "Technical resource, accessed 6 October 2026",
+    "url": "https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/direction-finding/",
+    "formatted": "[3] Bluetooth SIG, “Direction Finding,” Technical documentation. [Online]. Available: https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/direction-finding/. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 4,
+    "authors": "Bluetooth SIG",
+    "title": "Bluetooth Channel Sounding",
+    "venue": "Technical resource, accessed 6 October 2026",
+    "url": "https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/channel-sounding/",
+    "formatted": "[4] Bluetooth SIG, “Bluetooth Channel Sounding,” Technical documentation. [Online]. Available: https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/channel-sounding/. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 5,
+    "authors": "Bluetooth SIG",
+    "title": "Bluetooth Channel Sounding A Technical Overview",
+    "venue": "Technical resource, accessed 6 October 2026",
+    "url": "https://www.bluetooth.com/channel-sounding-tech-overview/",
+    "formatted": "[5] Bluetooth SIG, “Bluetooth Channel Sounding A Technical Overview,” Technical documentation. [Online]. Available: https://www.bluetooth.com/channel-sounding-tech-overview/. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 6,
+    "authors": "P. Rathje and O. Landsiedel",
+    "title": "Precise Ranging: Modeling Bias and Variance of Double-Sided Two-Way Ranging with TDoA Extraction under Multipath and NLOS Effects",
+    "venue": "arXiv:2410.12826v2, 2024",
+    "url": "https://arxiv.org/abs/2410.12826v2",
+    "formatted": "[6] P. Rathje and O. Landsiedel, “Precise Ranging: Modeling Bias and Variance of Double-Sided Two-Way Ranging with TDoA Extraction under Multipath and NLOS Effects,” arXiv:2410.12826v2, 2024. [Online]. Available: https://arxiv.org/abs/2410.12826v2"
+  },
+  {
+    "number": 7,
+    "authors": "A. Niculescu-Mizil and R. Caruana",
+    "title": "Predicting Good Probabilities with Supervised Learning",
+    "venue": "Proceedings of ICML, pp. 625–632, 2005; DOI 10.1145/1102351.1102430",
+    "url": "https://icml.cc/Conferences/2005/proceedings/papers/079_GoodProbabilities_NiculescuMizilCaruana.pdf",
+    "formatted": "[7] A. Niculescu-Mizil and R. Caruana, “Predicting Good Probabilities with Supervised Learning,” in Proc. International Conference on Machine Learning (ICML), 2005, pp. 625–632, doi: 10.1145/1102351.1102430."
+  },
+  {
+    "number": 8,
+    "authors": "C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger",
+    "title": "On Calibration of Modern Neural Networks",
+    "venue": "Proceedings of ICML, PMLR 70, pp. 1321–1330, 2017",
+    "url": "https://proceedings.mlr.press/v70/guo17a.html",
+    "formatted": "[8] C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On Calibration of Modern Neural Networks,” in Proc. International Conference on Machine Learning (ICML), Proc. Machine Learning Research, vol. 70, 2017, pp. 1321–1330. [Online]. Available: https://proceedings.mlr.press/v70/guo17a.html"
+  },
+  {
+    "number": 9,
+    "authors": "F. Pedregosa et al.",
+    "title": "Scikit-learn: Machine Learning in Python",
+    "venue": "Journal of Machine Learning Research, 12, pp. 2825–2830, 2011",
+    "url": "https://www.jmlr.org/papers/v12/pedregosa11a.html",
+    "formatted": "[9] F. Pedregosa et al, “Scikit-learn: Machine Learning in Python,” Journal of Machine Learning Research, vol. 12, 2011, pp. 2825–2830. [Online]. Available: https://www.jmlr.org/papers/v12/pedregosa11a.html"
+  },
+  {
+    "number": 10,
+    "authors": "Scikit-learn developers",
+    "title": "Cross-validation Evaluating Estimator Performance",
+    "venue": "Software documentation, accessed 6 October 2026",
+    "url": "https://scikit-learn.org/1.7/modules/cross_validation.html",
+    "formatted": "[10] Scikit-learn developers, “Cross-validation Evaluating Estimator Performance,” Technical documentation. [Online]. Available: https://scikit-learn.org/1.7/modules/cross_validation.html. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 11,
+    "authors": "Scikit-learn developers",
+    "title": "HistGradientBoostingClassifier",
+    "venue": "Version 1.7.2 documentation, accessed 6 October 2026",
+    "url": "https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html",
+    "formatted": "[11] Scikit-learn developers, “HistGradientBoostingClassifier,” Version 1.7.2 software documentation. [Online]. Available: https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 12,
+    "authors": "Qorvo",
+    "title": "DWM3001C",
+    "venue": "Product technical information, accessed 6 October 2026",
+    "url": "https://www.qorvo.com/products/p/DWM3001C",
+    "formatted": "[12] Qorvo, “DWM3001C,” Technical documentation. [Online]. Available: https://www.qorvo.com/products/p/DWM3001C. Accessed: Oct. 6, 2026."
+  },
+  {
+    "number": 13,
+    "authors": "P. J. Huber",
+    "title": "Robust Estimation of a Location Parameter",
+    "venue": "The Annals of Mathematical Statistics, 35(1), pp. 73–101, 1964",
+    "url": "https://doi.org/10.1214/aoms/1177703732",
+    "formatted": "[13] P. J. Huber, “Robust Estimation of a Location Parameter,” The Annals of Mathematical Statistics, vol. 35, no. 1, 1964, pp. 73–101, doi: 10.1214/aoms/1177703732."
+  },
+  {
+    "number": 14,
+    "authors": "R. E. Kalman",
+    "title": "A New Approach to Linear Filtering and Prediction Problems",
+    "venue": "Journal of Basic Engineering, 82(1), pp. 35–45, 1960",
+    "url": "https://doi.org/10.1115/1.3662552",
+    "formatted": "[14] R. E. Kalman, “A New Approach to Linear Filtering and Prediction Problems,” Journal of Basic Engineering, vol. 82, no. 1, 1960, pp. 35–45, doi: 10.1115/1.3662552."
+  },
+  {
+    "number": 15,
+    "authors": "L. Breiman",
+    "title": "Random Forests",
+    "venue": "Machine Learning, 45, pp. 5–32, 2001",
+    "url": "https://doi.org/10.1023/A:1010933404324",
+    "formatted": "[15] L. Breiman, “Random Forests,” Machine Learning, vol. 45, 2001, pp. 5–32, doi: 10.1023/A:1010933404324."
+  },
+  {
+    "number": 16,
+    "authors": "J. H. Friedman",
+    "title": "Greedy Function Approximation: A Gradient Boosting Machine",
+    "venue": "The Annals of Statistics, 29(5), pp. 1189–1232, 2001",
+    "url": "https://doi.org/10.1214/aos/1013203451",
+    "formatted": "[16] J. H. Friedman, “Greedy Function Approximation: A Gradient Boosting Machine,” The Annals of Statistics, vol. 29, no. 5, 2001, pp. 1189–1232, doi: 10.1214/aos/1013203451."
+  }
+]

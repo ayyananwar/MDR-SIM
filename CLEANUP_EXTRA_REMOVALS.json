@@ -1,0 +1,52 @@
+[
+  {
+    "path": "scripts/apply_cleanup.cjs",
+    "sha256": "f926792cdefb1996a33e7bc84e03630e93e2ff9c29d1e62a106d069184ffd489",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\scripts\\apply_cleanup.cjs"
+  },
+  {
+    "path": "scripts/cleanup_snapshot.cjs",
+    "sha256": "fffc16c1498baa89f330b751d60af089d7b14071e7c833b3a72fce8c2d084723",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\scripts\\cleanup_snapshot.cjs"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T_schema_seed_104729.json",
+    "sha256": "7f7019487dd896e83cbf0841ef8ff73921a3d1b4cf9dad8750cdc2a4dc4ab9a7",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T_schema_seed_104729.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T_schema_seed_209759.json",
+    "sha256": "b2acb0621ce4bfb2caec0d4e36072b343f46e4ee8192c8c3a6b6b1aa4cc902c6",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T_schema_seed_209759.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T_single_seed_104729.json",
+    "sha256": "7f7019487dd896e83cbf0841ef8ff73921a3d1b4cf9dad8750cdc2a4dc4ab9a7",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T_single_seed_104729.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T38_seed_104729.json",
+    "sha256": "7f7019487dd896e83cbf0841ef8ff73921a3d1b4cf9dad8750cdc2a4dc4ab9a7",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T38_seed_104729.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T38_seed_209759.json",
+    "sha256": "b2acb0621ce4bfb2caec0d4e36072b343f46e4ee8192c8c3a6b6b1aa4cc902c6",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T38_seed_209759.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T4_r1_seed_104729.json",
+    "sha256": "7f7019487dd896e83cbf0841ef8ff73921a3d1b4cf9dad8750cdc2a4dc4ab9a7",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T4_r1_seed_104729.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T4_r2_seed_104729.json",
+    "sha256": "7f7019487dd896e83cbf0841ef8ff73921a3d1b4cf9dad8750cdc2a4dc4ab9a7",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T4_r2_seed_104729.json"
+  },
+  {
+    "path": "results\\legacy-current\\per_seed\\T5_diff_seed_209759.json",
+    "sha256": "b2acb0621ce4bfb2caec0d4e36072b343f46e4ee8192c8c3a6b6b1aa4cc902c6",
+    "backup": "C:\\Users\\ayyan\\.codex\\visualizations\\2026\\10\\06\\01a10fd2-58ba-7951-8277-e6dcd87384e6\\MDR_SIM_backup_1791267443555\\cleanup-generated\\results\\legacy-current\\per_seed\\T5_diff_seed_209759.json"
+  }
+]

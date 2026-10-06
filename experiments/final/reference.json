@@ -1,0 +1,86 @@
+{
+  "_comment": "MDR-SIM Phase 7 Frozen Reference Configuration v1.0.0",
+  "configId": "reference-v1.0.0",
+  "configVersion": "1.0.0",
+  "scenarioFamily": "reference",
+  "datasetVersion": "2.0",
+  "scenarioVersion": "1.0",
+  "seed": 104729,
+  "durationSeconds": 3600,
+  "populationSize": 50,
+  "gatewayCount": 8,
+  "timeStepSeconds": 1,
+  "rooms": [],
+  "contactDefinition": {
+    "distanceThresholdMeters": 2.0,
+    "minimumDurationSeconds": 30,
+    "roomConstraint": "same-room"
+  },
+  "ble": {
+    "advertising": {
+      "intervalMs": 500,
+      "jitterMinMs": 0,
+      "jitterMaxMs": 10,
+      "advertisementType": "legacy"
+    },
+    "rssi": {
+      "referenceDistanceMeters": 1.0,
+      "referenceRSSIDbm": -50,
+      "pathLossExponent": 2.5,
+      "noiseSigmaDb": 6.0
+    },
+    "reception": {
+      "packetLossProbability": 0.05,
+      "receiverSensitivityDbm": -95
+    }
+  },
+  "edge": {
+    "validation": {
+      "minRssiDbm": -110,
+      "maxRssiDbm": 0,
+      "maxTimestampSkewMs": 5000
+    },
+    "deduplication": {
+      "enabled": true,
+      "timeWindowMs": 20
+    },
+    "rssiFilter": {
+      "method": "median",
+      "windowSize": 5
+    },
+    "proximity": {
+      "model": "log-distance",
+      "thresholdDistanceMeters": 2.0
+    },
+    "candidateGeneration": {
+      "temporalWindowMs": 1000
+    },
+    "sessionization": {
+      "minimumObservationCount": 3,
+      "minimumDurationSeconds": 30,
+      "maxGapSeconds": 5
+    }
+  },
+  "risk": {
+    "modelVersion": "risk-model-1.0.0",
+    "targetDefinition": "Reference digital exposure event satisfied according to ground-truth contact protocol (Phase 1). NOT infection, transmission, or clinical diagnosis.",
+    "prior": {
+      "baselineExposureProbability": 0.1,
+      "priorMode": "empirical"
+    },
+    "features": {
+      "duration": true,
+      "proximity": true,
+      "recurrence": true,
+      "sourceStatus": true
+    },
+    "smoothing": {
+      "alpha": 1.0,
+      "beta": 1.0
+    },
+    "calibration": {
+      "enabled": false,
+      "method": "platt"
+    }
+  }
+}

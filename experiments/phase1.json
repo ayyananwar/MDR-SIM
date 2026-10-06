@@ -1,0 +1,14 @@
+{
+  "datasetVersion": "2.0",
+  "scenarioVersion": "1.0",
+  "seed": 104729,
+  "durationSeconds": 3600,
+  "populationSize": 50,
+  "gatewayCount": 8,
+  "timeStepSeconds": 1,
+  "contactDefinition": {
+    "distanceThresholdMeters": 2.0,
+    "minimumDurationSeconds": 30,
+    "roomConstraint": "same-room"
+  }
+}

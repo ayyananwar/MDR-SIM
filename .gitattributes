@@ -1,0 +1,2 @@
+# Preserve exact source bytes required by the frozen SHA-256 evidence manifests.
+* -text

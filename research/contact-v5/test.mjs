@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {protocol} from './protocol.mjs';
+import {trajectory,observe,blocked} from './sensor.mjs';
+import {estimate,measurementsForBudget,CausalMeasurements,CausalTracker,TemporalDecision,positionEvidence} from './inference.mjs';
+import {evidenceSessions} from './evaluation.mjs';
+const point={x:6,y:8};
+const exact=protocol.anchors.map(anchor=>({anchor,wearableId:'w0',rssiDbm:-50-25*Math.log10(Math.hypot(point.x-anchor.x,point.y-anchor.y)),
+  bearingRad:Math.atan2(point.y-anchor.y,point.x-anchor.x)-anchor.orientationRad}));
+for(const enabled of [new Set(),new Set(protocol.upgradedTwo),new Set(protocol.anchors.map(a=>a.id))]) {
+  const answer=estimate(measurementsForBudget(exact,enabled),protocol.estimator);
+  assert.ok(answer&&Math.hypot(answer.x-point.x,answer.y-point.y)<1e-3);
+}
+const rssi=measurementsForBudget(exact,new Set());
+assert.ok(rssi.every(o=>!('bearingRad' in o)),'zero upgrade budget must remove bearings');
+assert.deepEqual(estimate(rssi,protocol.estimator),estimate(measurementsForBudget(exact.map(o=>({...o,bearingRad:0})),new Set()),protocol.estimator));
+const filter=new CausalMeasurements(5);
+filter.update(0,[{...rssi[0],rssiDbm:-40}]);
+assert.equal(filter.update(1,[{...rssi[0],rssiDbm:-60}])[0].rssiDbm,-50);
+assert.equal(filter.update(10,[]).length,0,'old packets cannot become fresh measurements');
+assert.equal(filter.update(11,[{...rssi[0],rssiDbm:-80}])[0].rssiDbm,-80);
+const tracker=new CausalTracker(protocol.estimator,1);
+tracker.update(0,'w0',{x:1,y:1});
+assert.ok(tracker.update(3,'w0',null));assert.equal(tracker.update(4,'w0',null),null,'prediction must expire');
+const follow=(n)=>{const f=new CausalTracker(protocol.estimator,1);return Array.from({length:n},(_,t)=>f.update(t,'w0',{x:t*.1+(t%2?.5:-.5),y:1}));};
+assert.deepEqual(follow(20),follow(40).slice(0,20),'tracking must never use future samples');
+const decision=new TemporalDecision(10,.7);
+for(let t=0;t<9;t++)assert.equal(decision.update(t,{'a|b':true})['a|b'],false);
+assert.equal(decision.update(9,{'a|b':true})['a|b'],true);
+assert.equal(decision.update(10,{'a|b':null})['a|b'],false,'unknown cannot maintain current contact');
+assert.equal(evidenceSessions(Array.from({length:30},(_,t)=>({t,evidence:{'a|b':true}}))).length,0);
+assert.equal(evidenceSessions(Array.from({length:31},(_,t)=>({t,evidence:{'a|b':true}})))[0].detectedAt,30);
+const ids=Array.from({length:8},(_,i)=>`w${i}`),truth=trajectory(611);
+const reference=evidenceSessions(truth.map(f=>({t:f.t,evidence:positionEvidence(f.positions,ids,protocol.floorplan,2)})));
+assert.equal(reference.length,3);
+assert.ok(!reference.some(s=>s.pair==='w6|w7'),'cross-wall near pair is not a reference contact');
+assert.ok(blocked({x:2,y:2},{x:22,y:2}));assert.ok(!blocked({x:2,y:10},{x:22,y:10}));
+let maxStep=0;for(let t=1;t<truth.length;t++)for(let i=0;i<8;i++)maxStep=Math.max(maxStep,Math.hypot(truth[t].positions[i].x-truth[t-1].positions[i].x,truth[t].positions[i].y-truth[t-1].positions[i].y));
+assert.ok(maxStep<.25,'controlled trajectories must remain continuous');
+const a=observe(truth,611,protocol.conditions[1]);assert.deepEqual(a,observe(truth,611,protocol.conditions[1]));
+for(const o of a[0].observations)assert.deepEqual(Object.keys(o).sort(),['anchor','bearingRad','rssiDbm','wearableId']);
+const source=readFileSync(new URL('./inference.mjs',import.meta.url),'utf8');
+assert.equal(/^import\s/m.test(source),false,'inference must not access hidden-state modules');
+assert.equal(new Set([...protocol.developmentSeeds,...protocol.evaluationSeeds]).size,35);
+console.log('v5 passed: exact localization, modality budget, causal filtering/tracking, gap expiry, wall exclusion, continuity, replay and disjoint seeds.');

@@ -1,0 +1,961 @@
+{
+  "budgets": {
+    "caption": "Table 1 Observation configurations",
+    "headers": [
+      "Budget",
+      "Additional measurements",
+      "Receiver configuration"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "None",
+        "Four RSSI gateways"
+      ],
+      [
+        "AoA2",
+        "Bearings",
+        "g0 and g2 upgraded; RSSI at all four"
+      ],
+      [
+        "AoA4",
+        "Bearings",
+        "All four gateways upgraded"
+      ],
+      [
+        "PBR",
+        "Multi-tone reciprocal phase",
+        "Four ranging anchors"
+      ],
+      [
+        "RTT",
+        "Elapsed and turnaround time",
+        "Four ranging anchors"
+      ],
+      [
+        "PBR/RTT",
+        "PBR plus RTT consistency gate",
+        "Four ranging anchors"
+      ],
+      [
+        "UWB",
+        "DS-TWR intervals",
+        "Four ranging anchors"
+      ]
+    ],
+    "widths": [
+      1.0,
+      2.4,
+      3.3
+    ]
+  },
+  "channel": {
+    "caption": "Table 2 Assumed sensor and reception parameters",
+    "headers": [
+      "Parameter",
+      "Ideal setting",
+      "Wall setting"
+    ],
+    "rows": [
+      [
+        "RSSI noise SD (dB)",
+        "6",
+        "6"
+      ],
+      [
+        "RSSI and angular AR correlation",
+        "0",
+        "0.8"
+      ],
+      [
+        "Persistent device RSSI bias SD (dB)",
+        "0",
+        "2"
+      ],
+      [
+        "Wall attenuation (dB)",
+        "0",
+        "6"
+      ],
+      [
+        "Bearing noise SD (degrees)",
+        "5",
+        "5"
+      ],
+      [
+        "Gateway orientation bias SD (degrees)",
+        "0",
+        "2"
+      ],
+      [
+        "Wall bearing bias (degrees)",
+        "0",
+        "8"
+      ],
+      [
+        "Independent packet loss",
+        "0.10",
+        "0.10"
+      ],
+      [
+        "Sensitivity floor (dBm)",
+        "−95",
+        "−95"
+      ],
+      [
+        "Burst-start probability per link per second",
+        "0",
+        "0.008"
+      ],
+      [
+        "Burst length (s)",
+        "0",
+        "3"
+      ],
+      [
+        "PBR phase noise SD (rad)",
+        "0.25",
+        "0.50"
+      ],
+      [
+        "Blocked-link reflected amplitude / excess path",
+        "0 / 0",
+        "1.4 / 2 m"
+      ],
+      [
+        "RTT elapsed-time noise SD (ns)",
+        "10",
+        "10"
+      ],
+      [
+        "UWB interval noise SD (ns)",
+        "0.4",
+        "0.4"
+      ],
+      [
+        "RTT blocked-link bias (m)",
+        "0",
+        "1.5"
+      ],
+      [
+        "UWB blocked-link bias (m)",
+        "0",
+        "0.8"
+      ],
+      [
+        "Persistent PBR / RTT / UWB range-bias SD (m)",
+        "0.15 / 0.30 / 0.10",
+        "0.15 / 0.30 / 0.10"
+      ]
+    ],
+    "widths": [
+      4.0,
+      1.35,
+      1.35
+    ]
+  },
+  "models": {
+    "caption": "Table 3 Declared classifier search grids",
+    "headers": [
+      "Family",
+      "Candidate settings",
+      "Fixed fitting settings"
+    ],
+    "rows": [
+      [
+        "Logistic",
+        "C ∈ {0.1, 1}",
+        "Standardized; balanced weights; max 2,000 iterations"
+      ],
+      [
+        "Random forest",
+        "Depth ∈ {8, 12}",
+        "64 trees; leaf minimum 25; balanced weights"
+      ],
+      [
+        "Histogram boosting",
+        "Leaves ∈ {15, 31}",
+        "80 iterations; leaf minimum 50; L2 = 0.1; balanced weights; no early stopping"
+      ],
+      [
+        "Gaussian Bayes",
+        "Variance smoothing ∈ {10⁻⁶, 10⁻³}",
+        "Standardized; empirical class priors"
+      ]
+    ],
+    "widths": [
+      1.35,
+      1.9,
+      3.45
+    ]
+  },
+  "partitions": {
+    "caption": "Table 4 Independent motion support by partition",
+    "headers": [
+      "Partition",
+      "Seed range",
+      "Recordings",
+      "Unique contacts",
+      "Positive pair-frames"
+    ],
+    "rows": [
+      [
+        "Training",
+        "2001–2024",
+        "24",
+        "119",
+        "18,871"
+      ],
+      [
+        "Calibration",
+        "2201–2208",
+        "8",
+        "52",
+        "7,208"
+      ],
+      [
+        "Validation",
+        "2101–2108",
+        "8",
+        "49",
+        "7,030"
+      ],
+      [
+        "Primary test",
+        "2301–2330",
+        "30",
+        "176",
+        "25,274"
+      ],
+      [
+        "Unseen motion",
+        "2401–2412",
+        "12",
+        "68",
+        "6,759"
+      ]
+    ],
+    "widths": [
+      1.4,
+      1.35,
+      1.0,
+      1.25,
+      1.7
+    ]
+  },
+  "primary": {
+    "caption": "Table 5 Validation-selected primary contact reconstruction",
+    "headers": [
+      "Budget",
+      "Family",
+      "Rule F1",
+      "ML F1",
+      "TP/FP/FN",
+      "ML minus rule\n95% interval"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "Boosted",
+        "0.000",
+        "0.445",
+        "217/464/135",
+        "0.445\n[0.403, 0.488]"
+      ],
+      [
+        "AoA2",
+        "Forest",
+        "0.392",
+        "0.571",
+        "232/262/120",
+        "0.179\n[0.122, 0.236]"
+      ],
+      [
+        "AoA4",
+        "Forest",
+        "0.579",
+        "0.704",
+        "285/196/67",
+        "0.125\n[0.083, 0.171]"
+      ],
+      [
+        "PBR",
+        "Boosted",
+        "0.575",
+        "0.690",
+        "250/114/102",
+        "0.115\n[0.063, 0.168]"
+      ],
+      [
+        "RTT",
+        "Logistic",
+        "0.485",
+        "0.561",
+        "252/323/100",
+        "0.076\n[0.020, 0.128]"
+      ],
+      [
+        "PBR/RTT",
+        "Boosted",
+        "0.547",
+        "0.664",
+        "237/112/115",
+        "0.117\n[0.060, 0.172]"
+      ],
+      [
+        "UWB",
+        "Logistic",
+        "0.729",
+        "0.763",
+        "261/90/91",
+        "0.034\n[-0.009, 0.082]"
+      ]
+    ],
+    "widths": [
+      0.7,
+      0.85,
+      0.7,
+      0.7,
+      1.2,
+      2.05
+    ]
+  },
+  "families": {
+    "caption": "Table 6 Primary contact F1 across full families and controls",
+    "headers": [
+      "Budget",
+      "Strict",
+      "Temporal",
+      "Tuned",
+      "Logistic",
+      "Forest",
+      "Boosted",
+      "Bayes"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "0.000",
+        "0.000",
+        "0.000",
+        "0.372",
+        "0.395",
+        "0.445",
+        "0.311"
+      ],
+      [
+        "AoA2",
+        "0.008",
+        "0.063",
+        "0.392",
+        "0.508",
+        "0.571",
+        "0.564",
+        "0.461"
+      ],
+      [
+        "AoA4",
+        "0.272",
+        "0.429",
+        "0.579",
+        "0.691",
+        "0.704",
+        "0.708",
+        "0.581"
+      ],
+      [
+        "PBR",
+        "0.450",
+        "0.520",
+        "0.575",
+        "0.667",
+        "0.651",
+        "0.690",
+        "0.664"
+      ],
+      [
+        "RTT",
+        "0.018",
+        "0.074",
+        "0.485",
+        "0.561",
+        "0.590",
+        "0.578",
+        "0.522"
+      ],
+      [
+        "PBR/RTT",
+        "0.439",
+        "0.504",
+        "0.547",
+        "0.658",
+        "0.649",
+        "0.664",
+        "0.660"
+      ],
+      [
+        "UWB",
+        "0.644",
+        "0.742",
+        "0.729",
+        "0.763",
+        "0.760",
+        "0.751",
+        "0.709"
+      ]
+    ],
+    "widths": [
+      0.85,
+      0.8,
+      0.85,
+      0.85,
+      0.85,
+      0.85,
+      0.85,
+      0.85
+    ]
+  },
+  "conditions": {
+    "caption": "Table 7 Selected-model conditions and unseen motion",
+    "headers": [
+      "Budget",
+      "Ideal F1",
+      "Wall F1",
+      "Unseen F1",
+      "Unseen\nTP/FP/FN",
+      "Unseen FP\nper pair-hour"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "0.510",
+        "0.379",
+        "0.290",
+        "74/231/62",
+        "3.438"
+      ],
+      [
+        "AoA2",
+        "0.654",
+        "0.489",
+        "0.446",
+        "69/72/67",
+        "1.071"
+      ],
+      [
+        "AoA4",
+        "0.766",
+        "0.642",
+        "0.647",
+        "96/52/40",
+        "0.774"
+      ],
+      [
+        "PBR",
+        "0.768",
+        "0.611",
+        "0.663",
+        "82/21/54",
+        "0.312"
+      ],
+      [
+        "RTT",
+        "0.572",
+        "0.549",
+        "0.537",
+        "87/83/49",
+        "1.235"
+      ],
+      [
+        "PBR/RTT",
+        "0.795",
+        "0.534",
+        "0.667",
+        "80/17/56",
+        "0.253"
+      ],
+      [
+        "UWB",
+        "0.834",
+        "0.691",
+        "0.751",
+        "102/26/34",
+        "0.387"
+      ]
+    ],
+    "widths": [
+      0.85,
+      0.85,
+      0.85,
+      0.95,
+      1.5,
+      1.7
+    ]
+  },
+  "ablations": {
+    "caption": "Table 8 Primary contact F1 for temporal extension and ablations",
+    "headers": [
+      "Budget",
+      "Selected full",
+      "Markov",
+      "No history",
+      "No room feature"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "0.445",
+        "0.378",
+        "0.279",
+        "0.365"
+      ],
+      [
+        "AoA2",
+        "0.571",
+        "0.495",
+        "0.524",
+        "0.517"
+      ],
+      [
+        "AoA4",
+        "0.704",
+        "0.660",
+        "0.629",
+        "0.657"
+      ],
+      [
+        "PBR",
+        "0.690",
+        "0.640",
+        "0.663",
+        "0.686"
+      ],
+      [
+        "RTT",
+        "0.561",
+        "0.485",
+        "0.545",
+        "0.512"
+      ],
+      [
+        "PBR/RTT",
+        "0.664",
+        "0.651",
+        "0.656",
+        "0.683"
+      ],
+      [
+        "UWB",
+        "0.763",
+        "0.707",
+        "0.769",
+        "0.754"
+      ]
+    ],
+    "widths": [
+      1,
+      1.4,
+      1.2,
+      1.4,
+      1.7
+    ]
+  },
+  "quality": {
+    "caption": "Table 9 Selected-model probability and time outcomes",
+    "headers": [
+      "Budget",
+      "Brier",
+      "ECE",
+      "Missed\ntime rate",
+      "FP per\npair-hour",
+      "Duration\nMAE s",
+      "Confirm\ndelay s"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "0.064",
+        "0.038",
+        "0.442",
+        "2.762",
+        "54.0",
+        "37.7"
+      ],
+      [
+        "AoA2",
+        "0.049",
+        "0.022",
+        "0.407",
+        "1.560",
+        "34.9",
+        "40.2"
+      ],
+      [
+        "AoA4",
+        "0.033",
+        "0.015",
+        "0.241",
+        "1.167",
+        "33.6",
+        "41.5"
+      ],
+      [
+        "PBR",
+        "0.029",
+        "0.012",
+        "0.359",
+        "0.679",
+        "35.0",
+        "41.1"
+      ],
+      [
+        "RTT",
+        "0.046",
+        "0.018",
+        "0.377",
+        "1.923",
+        "43.9",
+        "43.3"
+      ],
+      [
+        "PBR/RTT",
+        "0.029",
+        "0.013",
+        "0.399",
+        "0.667",
+        "34.4",
+        "40.8"
+      ],
+      [
+        "UWB",
+        "0.024",
+        "0.013",
+        "0.263",
+        "0.536",
+        "30.4",
+        "37.8"
+      ]
+    ],
+    "widths": [
+      0.75,
+      0.75,
+      0.75,
+      1.05,
+      1.1,
+      1.15,
+      1.15
+    ]
+  },
+  "service": {
+    "caption": "Table 10 Separate UWB service-load study",
+    "headers": [
+      "Channel setting",
+      "Scheduled clients",
+      "Mean contact F1",
+      "Availability"
+    ],
+    "rows": [
+      [
+        "LOS",
+        "8",
+        "0.938",
+        "0.995"
+      ],
+      [
+        "LOS",
+        "32",
+        "0.000",
+        "0.472"
+      ],
+      [
+        "LOS",
+        "128",
+        "0.000",
+        "0.127"
+      ],
+      [
+        "wall-multipath",
+        "8",
+        "0.783",
+        "0.977"
+      ],
+      [
+        "wall-multipath",
+        "32",
+        "0.000",
+        "0.443"
+      ],
+      [
+        "wall-multipath",
+        "128",
+        "0.000",
+        "0.119"
+      ]
+    ],
+    "widths": [
+      2.3,
+      1.5,
+      1.45,
+      1.45
+    ]
+  },
+  "features": {
+    "caption": "Table A1 Observable feature schema",
+    "headers": [
+      "No",
+      "Column name",
+      "Definition",
+      "Unit"
+    ],
+    "rows": [
+      [
+        "1",
+        "estimatedDistance",
+        "Estimated separation capped at 30; zero if unavailable",
+        "m"
+      ],
+      [
+        "2",
+        "estimatedSameRoom",
+        "Same side of public wall from estimated positions",
+        "binary"
+      ],
+      [
+        "3",
+        "pairPositionAvailable",
+        "Tracked pair positions and BLE ages at most 3 s",
+        "binary"
+      ],
+      [
+        "4",
+        "minTelemetryAge",
+        "Smaller latest-telemetry age; 30 if none",
+        "s"
+      ],
+      [
+        "5",
+        "maxTelemetryAge",
+        "Larger latest-telemetry age; 30 if none",
+        "s"
+      ],
+      [
+        "6",
+        "commonReceivers",
+        "Common receivers in five-second telemetry histories",
+        "count"
+      ],
+      [
+        "7",
+        "minMeanRssi",
+        "Smaller device mean of receiver-median RSSI",
+        "dBm"
+      ],
+      [
+        "8",
+        "maxMeanRssi",
+        "Larger device mean of receiver-median RSSI",
+        "dBm"
+      ],
+      [
+        "9",
+        "rssiMeanDifference",
+        "Absolute mean signed RSSI difference on common receivers",
+        "dB"
+      ],
+      [
+        "10",
+        "centeredRssiProfileDifference",
+        "Mean absolute common-receiver RSSI differences after offset removal",
+        "dB"
+      ],
+      [
+        "11",
+        "rssiProfileMaxDifference",
+        "Maximum offset-removed RSSI profile difference",
+        "dB"
+      ],
+      [
+        "12",
+        "minPacketCount",
+        "Smaller received-observation count over five-second histories",
+        "count"
+      ],
+      [
+        "13",
+        "maxPacketCount",
+        "Larger received-observation count over five-second histories",
+        "count"
+      ],
+      [
+        "14",
+        "meanAngularDifference",
+        "Mean circular angular difference on common enabled receivers",
+        "rad"
+      ],
+      [
+        "15",
+        "maxAngularDifference",
+        "Maximum circular angular difference",
+        "rad"
+      ],
+      [
+        "16",
+        "meanRangeProfileDifference",
+        "Mean absolute common-anchor range difference",
+        "m"
+      ],
+      [
+        "17",
+        "maxRangeProfileDifference",
+        "Maximum absolute common-anchor range difference",
+        "m"
+      ],
+      [
+        "18",
+        "meanRangeFitResidual",
+        "Mean absolute observed-versus-estimated range residual",
+        "m"
+      ],
+      [
+        "19",
+        "meanPhaseFitResidual",
+        "Mean unwrapped phase-slope residual on current PBR links",
+        "rad"
+      ],
+      [
+        "20",
+        "meanPbrRttDisagreement",
+        "Mean PBR/RTT disagreement on accepted combined links",
+        "m"
+      ],
+      [
+        "21",
+        "distanceMean10",
+        "Mean available separation in preceding ten seconds",
+        "m"
+      ],
+      [
+        "22",
+        "distanceStd10",
+        "SD of available separation in preceding ten seconds",
+        "m"
+      ],
+      [
+        "23",
+        "distanceMean30",
+        "Mean available separation in preceding thirty seconds",
+        "m"
+      ],
+      [
+        "24",
+        "positiveFraction10",
+        "Fixed estimated 2 m same-room positives / history samples over 10 s",
+        "0–1"
+      ],
+      [
+        "25",
+        "positiveFraction30",
+        "Same fraction over 30 s",
+        "0–1"
+      ],
+      [
+        "26",
+        "availableFraction10",
+        "Available samples / history samples over 10 s",
+        "0–1"
+      ],
+      [
+        "27",
+        "availableFraction30",
+        "Same fraction over 30 s",
+        "0–1"
+      ],
+      [
+        "28",
+        "distanceChange10",
+        "Last minus first available distance in ten-second history",
+        "m"
+      ],
+      [
+        "29",
+        "rssiProfileDifferenceMean10",
+        "Mean offset-removed RSSI profile difference in ten-second history",
+        "dB"
+      ]
+    ],
+    "widths": [
+      0.35,
+      2.05,
+      3.85,
+      0.45
+    ]
+  },
+  "selections": {
+    "caption": "Table C1 Frozen primary model and rule settings",
+    "headers": [
+      "Budget",
+      "Family",
+      "Hyperparameter",
+      "ML threshold / decoder",
+      "Rule distance / decoder"
+    ],
+    "rows": [
+      [
+        "RSSI",
+        "Boosted",
+        "leaves=31",
+        "0.2 / occupancy",
+        "2 m / strict"
+      ],
+      [
+        "AoA2",
+        "Forest",
+        "depth=12",
+        "0.2 / strict",
+        "3 m / occupancy"
+      ],
+      [
+        "AoA4",
+        "Forest",
+        "depth=8",
+        "0.2 / strict",
+        "3 m / strict"
+      ],
+      [
+        "PBR",
+        "Boosted",
+        "leaves=15",
+        "0.2 / strict",
+        "3 m / occupancy"
+      ],
+      [
+        "RTT",
+        "Logistic",
+        "C=1.0",
+        "0.2 / occupancy",
+        "3 m / occupancy"
+      ],
+      [
+        "PBR/RTT",
+        "Boosted",
+        "leaves=15",
+        "0.2 / strict",
+        "3 m / occupancy"
+      ],
+      [
+        "UWB",
+        "Logistic",
+        "C=1.0",
+        "0.2 / strict",
+        "2.5 m / strict"
+      ]
+    ],
+    "widths": [
+      0.75,
+      0.9,
+      1.35,
+      1.85,
+      1.85
+    ]
+  }
+}
