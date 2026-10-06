@@ -29,7 +29,7 @@ The current v7 selected-model numerical table is consistent with saved test outp
 
 The old `MANUSCRIPT_FINAL.md` is not the current final-paper source. Its unsupported 811-FP diagnostic, outdated logistic calibration metric and causal inverse-ranking explanation must not be carried into the new paper. Original E3's six directed positives correspond to only three independent sessions. The new v7 all-pair task addresses training support in a different benchmark; its larger counts cannot be used to rewrite the original experiment's support. Historical frozen protocol text uses “continuous” language that the original one-second sampled truth does not establish.
 
-The final starting point is [FINAL_PAPER_START_HERE.md](../FINAL_PAPER_START_HERE.md), which defines the evidence hierarchy, detailed paper structure, frozen answers and required caveats. The extended prose is in `docs/ML_V7_MANUSCRIPT_DRAFT.md`. Historical files are preserved, and new code/results are not substituted into old provenance.
+The final starting point is [FINAL_PAPER_START_HERE.md](../paper/README.md), which defines the evidence hierarchy, detailed paper structure, frozen answers and required caveats. The extended prose is in `docs/ML_V7_MANUSCRIPT_DRAFT.md`. Historical files are preserved, and new code/results are not substituted into old provenance.
 
 ## Scope of correctness
 

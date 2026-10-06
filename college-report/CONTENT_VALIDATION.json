@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "numberedChapters": 8,
+  "headings": 80,
+  "references": 18,
+  "externalLogoFiles": 2,
+  "sourceSha256": "ad794055569acac200f92165c39188ace386bca80f057c74395fdac1c08c2686",
+  "templateSha256": "75d0e96e12a6dde9b0b217597d51cf1a48d0d3cacad520793476d917aaa01146",
+  "researchSources": [
+    {
+      "file": "paper/manuscript_content.md",
+      "sha256": "31d8a62c4085b4cc31a5838dc1cb0cc4380bab5267eb142eea3d0bace6871f70"
+    },
+    {
+      "file": "paper/manuscript_tables.json",
+      "sha256": "55f83bc825890d4196aa1ee6a4aaef07aeac68525fae3770579013db5b6ad38f"
+    },
+    {
+      "file": "paper/references.json",
+      "sha256": "55709b5d6a38908a2f2323bae0a84cac54af58eddc796943c311a3adc6e88558"
+    }
+  ],
+  "scope": "Content/structure checks; compile and layout status recorded separately.",
+  "headingSequenceMatchesSuppliedTemplateExceptApprovedModuleRename": true
+}

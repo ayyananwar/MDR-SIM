@@ -18,3 +18,5 @@ python paper/check_manuscript.py
 ```
 
 The complete simulation/training commands are in manuscript Appendix B and the project research documentation. Figure and document checks do not establish hardware performance or publication acceptance.
+
+The manuscript checker validates two retired navigation documents against their exact bytes in the `research-v7-2026-10-06` Git tag. Fetch tags before checking (`git fetch origin --tags`). All frozen scientific sources and results are still checked against files in the current project.

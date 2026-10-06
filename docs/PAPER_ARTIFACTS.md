@@ -12,10 +12,10 @@
 | `../results/paper-v3/` | Newly executed corrected E1/E3 campaign; manifest, per-seed observable records/reference sessions, raw predictions, summary, checksums |
 | `../results/diagnostic-v3/` | Newly executed paired 2/3 m diagnostic; 2 m TP=0/FP=2, 3 m TP=0/FP=125 |
 | `../INDEPENDENT_PAPER_REVIEW.md` | Initial review of pre-cleanup implementation; not a claim that fixed issues remain unfixed |
-| External backup in `../CLEANUP_INVENTORY.json` | Exact original source, all older campaigns, historical reports/scripts and raw datasets |
+| External backup in [original cleanup inventory](https://github.com/ayyananwar/MDR-SIM/blob/e3cc2081414704d66c8e34f87a39858f8a64b3a3/CLEANUP_INVENTORY.json) | Exact original source, all older campaigns, historical reports/scripts and raw datasets |
 
 Protocol v3 fixes cumulative duration, temporal E3 target consistency and empty-fold aggregation. It retains sampled same-room reference contacts, rounded reconstructed durations and fixed Bayesian tables, now explicitly disclosed. All 30 E1 results exactly reproduce the original contact metrics. The corrected E3 table retains the original rounded metrics except logistic ECE, which changes from .047 to .038. Original and corrected predictions remain separately identified. The original 811-FP claim remains unsupported regardless of new diagnostic output.
 
 The paper campaign records all seeds and resolved geometry. Source hashes are captured separately in `results/paper-v3/source-checksums.json`; result hashes are in `checksums.json`. Use `node scripts/verifyArtifacts.cjs results/paper-v3` and the corresponding diagnostic command to verify results. Use `node scripts/verifyArtifacts.cjs . results/paper-v3/source-checksums.json` to verify current source against the frozen version. An exact rerun writes a fresh directory; compare scientific outputs, not filenames alone. The cleanup-added source-provenance metadata is a supplemental capture after execution and may differ from a fresh campaign manifest until that capture is repeated.
 
-No newly generated result should be presented as if it existed in the original evidence package. The corrected-results report and cleanup report identify numerical changes once the run completes.
+No newly generated result should be presented as if it existed in the original evidence package. The corrected-results report and retained historical review identify numerical changes once the run completes.

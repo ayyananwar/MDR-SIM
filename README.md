@@ -1,12 +1,14 @@
 # BLE gateway contact-reconstruction simulation
 
+**New to the project?** Read [the complete beginner's guide](docs/PROJECT_BEGINNER_GUIDE.md) for the system, terminology, formulas, all 29 features, learning/evaluation workflow, actual findings, limitations, and reproduction steps.
+
 **Current full manuscript:** [read the detailed research paper](paper/Contact_Reconstruction_Research_Paper.md) or [download the editable Word document](paper/Contact_Reconstruction_Research_Paper.docx). See [the submission checklist](paper/SUBMISSION_CHECKLIST.md) for author and venue decisions. The main study is a simulation-only comparison of seven observation budgets and four calibrated classifier families; real hospital accuracy and procurement cost remain unmeasured.
 
 **Research evidence distribution:** large `results/` artifacts are preserved locally and packaged separately from Git history. Follow [REPRODUCIBILITY_RELEASE.md](REPRODUCIBILITY_RELEASE.md) to restore checksum-verified release archives before running the saved-artifact verifiers. Generating a fresh run uses the commands below and does not require downloading prior results.
 
-**Writing the extended paper:** start with [FINAL_PAPER_START_HERE.md](FINAL_PAPER_START_HERE.md) and [the final research review](docs/FINAL_RESEARCH_REVIEW.md). The main extended experiment is the trained v7 comparison. Older files named `MANUSCRIPT_FINAL.md` and `FINAL_EXPERIMENTAL_PROTOCOL.md` describe historical campaigns and contain superseded claims; their names do not make them the current paper authority.
+**Writing the extended paper:** start with [the manuscript sources and build workflow](paper/README.md) and [the final research review](docs/FINAL_RESEARCH_REVIEW.md). The main extended experiment is the trained v7 comparison. Older files named `MANUSCRIPT_FINAL.md` and `FINAL_EXPERIMENTAL_PROTOCOL.md` describe historical campaigns and contain superseded claims; their names do not make them the current paper authority.
 
-Research code for **Gateway Co-Observation for Bluetooth Low Energy Contact Reconstruction: A Seed-Grouped Simulation Evaluation**. The simulation compares reconstructed gateway sessions with independently generated, hidden geometric reference contacts. Downstream models score the validity of surviving reconstructed records. These outputs are not infection probabilities or evidence of clinical effectiveness.
+Research code for **Learning Sustained Contacts from RSSI, Angular Measurements, and Ranging: A Reproducible Simulation Study**. The earlier gateway co-observation campaign remains identified separately. The simulation compares reconstructed gateway sessions with independently generated, hidden geometric reference contacts. Downstream models score the validity of surviving reconstructed records. These outputs are not infection probabilities or evidence of clinical effectiveness.
 
 The React interface is retained as a separate demonstration. Its hospital/MDR-TB terminology and live heuristics should not be used as the paper's research results. The research commands below use the canonical `src/simulation`, `src/ble`, `src/edge`, and `src/evaluation` pipeline.
 
@@ -31,7 +33,7 @@ npm run campaign:diagnostic
 npm run verify:paper
 ```
 
-The paper campaign runs the exact 30 seeds (101–110, 201–210, 301–310), 50 participants, 3600 seconds and eight gateways. It regenerates E1 and E3 from simulation rather than borrowing old predictions. Logistic training uses the other 29 seeds, including the corrected cumulative-duration feature. Bayesian likelihood tables remain fixed reference tables. The legacy alias `campaign:confirmatory` uses the same corrected paper workflow.
+The paper campaign runs the exact 30 seeds (101â€“110, 201â€“210, 301â€“310), 50 participants, 3600 seconds and eight gateways. It regenerates E1 and E3 from simulation rather than borrowing old predictions. Logistic training uses the other 29 seeds, including the corrected cumulative-duration feature. Bayesian likelihood tables remain fixed reference tables. The legacy alias `campaign:confirmatory` uses the same corrected paper workflow.
 
 Default output folders are `results/paper-v3/` and `results/diagnostic-v3/`. Runs refuse to overwrite nonempty output folders. To reproduce into fresh folders:
 
@@ -40,9 +42,9 @@ npm run campaign:paper -- results/paper-v3-replay
 npm run campaign:diagnostic -- results/diagnostic-v3-replay
 ```
 
-The diagnostic reuses identical movement and raw BLE observations for 2 m and 3 m post-filter gateway distance thresholds. It uses seeds 1–3, 30 participants and 1800 seconds. Its newly generated numbers are separate from the unverified historical claim of 811 false positives. `npm run verify:paper` independently recalculates temporal targets, prediction identity alignment and macro metrics from the completed saved run.
+The diagnostic reuses identical movement and raw BLE observations for 2 m and 3 m post-filter gateway distance thresholds. It uses seeds 1â€“3, 30 participants and 1800 seconds. Its newly generated numbers are separate from the unverified historical claim of 811 false positives. `npm run verify:paper` independently recalculates temporal targets, prediction identity alignment and macro metrics from the completed saved run.
 
-For other datasets: `npm run dataset:generate -- --config experiments/phase4.json --out output/dataset`. For the older five-seed E1–E15 workflow, use `npm run campaign:legacy`; this writes `results/legacy-current/` and is outside the current paper protocol. Never mix those results with the paper campaign. See [the protocol](docs/PAPER_PROTOCOL.md) before interpreting results.
+For other datasets: `npm run dataset:generate -- --config experiments/phase4.json --out output/dataset`. For the older five-seed E1â€“E15 workflow, use `npm run campaign:legacy`; this writes `results/legacy-current/` and is outside the current paper protocol. Never mix those results with the paper campaign. See [the protocol](docs/PAPER_PROTOCOL.md) before interpreting results.
 
 ## Project structure
 
@@ -50,6 +52,7 @@ For other datasets: `npm run dataset:generate -- --config experiments/phase4.jso
 |---|---|
 | `src/simulation/`, `src/ble/`, `src/edge/` | Hidden geometry, radio observations and observable reconstruction |
 | `src/risk/`, `src/evaluation/`, `src/campaign/` | Model inference, independent targets/metrics and experiments |
+| `college-report/` | College LaTeX report, diagrams, image assets and report builders |
 | Other `src/` modules and `public/` | React demonstration and supporting UI assets |
 | `tests/` | Phase tests plus paper regressions |
 | `experiments/` | Existing simulation configurations; old protocols remain identified |
@@ -61,10 +64,8 @@ For other datasets: `npm run dataset:generate -- --config experiments/phase4.jso
 | `scripts/verifyOriginalMetrics.cjs` | Independent arithmetic check of original raw predictions |
 | `scripts/verifyArtifacts.cjs` | Validate result-file checksums |
 | `scripts/verifyPaper.cjs` | Independently validate corrected targets and metrics |
-| `scripts/restoreArchive.ps1` | Restore a checksum-verified archived file without overwriting current work |
-| `CLEANUP_REPORT.md`, `CLEANUP_INVENTORY.json`, `CLEANUP_REMOVALS.json` | Cleanup record and recoverable archive inventory |
 
-Older reports, one-off scripts and multi-gigabyte datasets were archived in an external checksum-verified snapshot. [The cleanup report](CLEANUP_REPORT.md) gives its exact location and restore instructions. This archive contains contradictory historical evidence as well as old reproduction tools; it was not discarded.
+Historical research results retain their original version identifiers. Large authoritative evidence is available through the checksum-verified release described in [REPRODUCIBILITY_RELEASE.md](REPRODUCIBILITY_RELEASE.md).
 
 ## Interpretation limits
 

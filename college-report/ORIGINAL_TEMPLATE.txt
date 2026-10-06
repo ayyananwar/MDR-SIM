@@ -1,0 +1,1721 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\linespread{1.4}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{longtable}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{pdflscape}
+
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+
+\geometry{
+a4paper,
+total={210mm,297mm},
+left=1.25in,
+right=0.75in,
+top=0.75in,
+bottom=0.75in,
+}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+{\large \textbf{VISVESVARAYA TECHNOLOGICAL UNIVERSITY}}
+\par
+\vspace{3pt}
+{\large \textbf{``JNANA SANGAMA'', BELAGAVI - 590 018}}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.9in,height=1.0in]{../fig/vtu}
+\end{figure}
+\\
+\textbf{PROJECT PHASE II REPORT}
+\par
+\textbf{on}
+\par
+\vspace{3pt}
+{\large \textbf{``MDR-Safe: A Privacy-Preserving BLE Framework for Contact Monitoring and Probabilistic MDR-TB Risk Assessment''}}
+\par
+\vspace{3pt}
+\textit{\textbf{Submitted by}}
+\par
+\vspace{11pt}
+\begin{tabular}{ l   r }
+\textbf{\large Arjun KV} & \textbf{\large 4SF23CS032} \\
+\textbf{\large Ayyan Anwar} & \textbf{\large 4SF23CS042} \\
+\textbf{\large Md Aasim Shaibani} & \textbf{\large 4SF23CS103} \\
+\textbf{\large Nabil Ahmad Khan} & \textbf{\large 4SF23CS123} \\
+\end{tabular}
+\par
+\vspace{3pt}
+\textit{\textbf{In partial fulfillment of the requirements for the VII semester }}
+\par
+\vspace{1pt}
+\large \textbf{BACHELOR OF ENGINEERING }
+\par
+\vspace{1pt}
+\textbf{in}
+\par
+\vspace{1pt}
+\large \textbf{COMPUTER SCIENCE \& ENGINEERING}
+\par
+\vspace{1pt}
+\textit{\textbf{Under the Guidance of}}
+\par
+\vspace{1pt}
+\textbf{Ms. Alakananda K }
+\par
+%\vspace{0.5pt}
+\textbf{\centering \begin{normalsize}
+Assistant Professor, Department of CSE
+\end{normalsize} }
+\par
+\vspace{0.5pt}
+\small \centering \textbf{at}\\
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=1.25in,height=1.0in]{../fig/sahyadri}
+\end{figure}
+{\Large \textbf{SAHYADRI}}
+\par
+\vspace{6pt}
+{\large \textbf{College of Engineering \& Management}}
+\par
+\vspace{3pt}
+{\large \textbf{An Autonomous Institution }}
+\par
+\vspace{3pt}
+{\large \textbf{MANGALURU}}
+\par
+\vspace{1pt}
+{\large \textbf{2026 - 27}}
+
+\newpage
+
+{\LARGE \textbf{SAHYADRI}}
+\par
+\vspace{6pt}
+{\Large \textbf{College of Engineering \& Management}}
+\par
+\vspace{3pt}
+{\large \textbf{Adyar, Mangaluru - 575 007}}
+\par
+\vspace{0.25in}
+{\large \textbf{Department of Computer Science \& Engineering}}
+\par
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=1.25in,height=1in]{../fig/sahyadri}
+\end{figure}
+{\Large \textbf{CERTIFICATE}}
+\end{center}
+\par
+\vspace{0.10in}
+\setstretch{1.5}
+\noindent This is to certify that the phase - II work of project entitled \textbf{``MDR-Safe: A Privacy-Preserving BLE Framework for Contact Monitoring and Probabilistic MDR-TB Risk Assessment''}  has been carried out by \textbf{ Arjun KV(4SF23CS032), Ayyan Anwar  (4SF23CS042), Md Aasim Shaibani(4SF23CS103)  and Nabil Ahmad Khan (4SF23CS123)}, the bonafide students of Sahyadri College of Engineering and Management in partial fulfillment of the requirements for the VII semester of Bachelor of Engineering in Computer Science and Engineering of Visvesvaraya Technological University, Belagavi during the year  2026 - 27. It is certified that all suggestions indicated for Internal Assessment have been incorporated in the report deposited in the departmental library. The project report has been approved as it satisfies the academic requirements in respect of project work prescribed for the said degree.
+
+\par
+\vspace{0.95in}
+\setstretch{1.15}
+
+\begin{tabbing}
+-----------------------------------\hspace{0.32in}\=---------------------------------\hspace{0.32in}\=----------------------------------\\
+\hspace{0.32in}\textbf{Project Guide}\>\hspace{0.1in}\textbf{Project Coordinator}\>\hspace{0.8in}\textbf{HOD}\\
+\hspace{0.33in}\textbf{Ms. Alakananda K }\>\hspace{0.1in}\textbf{ Dr. Poornima B V }\>\hspace{0.0in}\textbf{Dr. Mustafa Basthikodi}\\
+\hspace{0.30in}Assistant Professor\>\hspace{0.21in} Associate Professor\>\hspace{0.5in}Professor \& Head\\
+\hspace{0.5in}Dept. of CSE\>\hspace{0.5in} Dept. of CSE\>\hspace{0.5in} Dept. of CSE\\
+\end{tabbing}
+\newpage
+\begin{center}
+{\LARGE \textbf{SAHYADRI}}
+\par
+\vspace{6pt}
+{\Large \textbf{College of Engineering \& Management}}
+\par
+\vspace{3pt}
+{\large \textbf{Adyar, Mangaluru - 575 007}}
+\par
+\vspace{0.25in}
+{\large \textbf{Department of Computer Science \& Engineering}}
+\par
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=1.25in,height=1in]{../fig/sahyadri}
+\end{figure}
+{\Large \textbf{DECLARATION}} 
+\end{center}
+\par
+\vspace{0.10in}
+\setstretch{1.5}
+\noindent We hereby declare that the entire work embodied in this Project Phase - II report titled
+\textbf{``MDR-Safe: A Privacy-
+Preserving BLE Framework for Contact Monitoring and Probabilistic MDR-
+TB Risk Assessment''} has been carried out by us at Sahyadri College of Engineering and Management, Mangaluru under the supervision of \textbf{Ms. Alakananda K,} in partial fulfillment of the requirements for the VII semester of \textbf{Bachelor of Engineering} in \textbf{Computer Science and Engineering}. This report has not been submitted to this or any other University  for the award of any  other degree. \\
+\vspace{0.25in}
+
+\setstretch{1.75}
+\begin{flushleft}
+\textbf{Arjun KV (4SF23CS032)}\\
+\textbf{Ayyan Anwar (4SF23CS042)}\\
+\textbf{Md Aasim Shaibani(4SF23CS103)}\\
+\textbf{Nabil Ahmad Khan(4SF23CS123)}\\
+Dept. of CSE, SCEM, Mangaluru \\
+\end{flushleft}
+\newpage
+\pagestyle{plain}
+\pagenumbering{roman}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{\numberline{}Abstract}
+Healthcare-associated transmission of multidrug-resistant tuberculosis (MDR-TB) presents a complex infection-control challenge because interactions among patients, healthcare workers, and visitors can occur repeatedly across different hospital locations and may be difficult to reconstruct retrospectively. This paper presents a privacy-preserving Bluetooth Low Energy (BLE)-based hospital contact monitoring framework that combines wearable sensing, edge processing, centralized contact-session management, and probabilistic exposure-risk assessment. BLE-enabled wearables transmit rotating pseudonymous identifiers, while edge gateways validate and aggregate BLE observations, remove redundant packets, estimate proximity from RSSI measurements, and reconstruct temporal contact sessions before forwarding processed information to the central server. A controlled simulation and evaluation framework is introduced to generate independent reference contact data, model BLE and RSSI uncertainty, and evaluate contact reconstruction, proximity estimation, exposure-risk assessment, communication reduction, scalability, and privacy properties. The proposed framework estimates digital exposure probability from observed contact evidence rather than attempting to diagnose infection or determine biological transmission. The system is intended as a decision-support mechanism for infection-control investigations while restricting direct identity exposure in the BLE communication layer.
+\setstretch{1.5}
+
+\noindent \textbf{Keywords:} Bluetooth Low Energy, hospital contact monitoring, MDR-TB, edge computing, proximity detection, RSSI, probabilistic risk assessment, privacy-preserving healthcare, wearable sensing, infection control.
+\chapter*{Acknowledgement}
+\addcontentsline{toc}{chapter}{\numberline{}Acknowledgement}
+It is with great satisfaction and euphoria that we are submitting the Project Phase - II report on \textbf{“MDR-Safe: A Privacy-
+Preserving BLE Framework for Contact Monitoring and Probabilistic MDR-
+TB Risk Assessment”}. We have completed it as a part of the curriculum of Visvesvaraya Technological University, Belagavi in partial fulfillment of the requirements for the VII semester of  Bachelor of Engineering in Computer Science and Engineering.
+\par
+\vspace{0.15in}
+\noindent We are profoundly indebted to our guide, \textbf{Ms. Alakananda K}, Assistant Professor, Department of Computer Science and Engineering for innumerable acts of timely advice, encouragement and we sincerely express our gratitude.
+\par
+\vspace{0.15in}
+\noindent We also thank \textbf{Dr. Poornima B V} and \textbf{Dr. Deepti Rai}, Project Coordinators, Department of Computer Science and Engineering for their constant encouragement and support extended throughout.
+\par
+\vspace{0.15in}
+\noindent We express our sincere gratitude to \textbf{Dr. Mustafa Basthikodi}, Professor and Head, Department of Computer Science and Engineering for his invaluable support and guidance.
+\par
+\vspace{0.15in}
+\noindent We sincerely thank  \textbf{Dr. S. S. Injaganeri}, Principal, Sahyadri College of Engineering and Management, who have always been a great source of inspiration.
+\par
+\vspace{0.15in}
+\noindent Finally, yet importantly, we express our heartfelt thanks to our family and friends for their wishes and encouragement throughout the work.
+\\
+\\
+\begin{flushright}
+\textbf{Arjun KV (4SF23CS032)}\\
+\textbf{Ayyan Anwar (4SF23CS042)} \\
+\textbf{Md Aasim Shaibani(4SF23CS103)}\\
+\textbf{Nabil Ahmad Khan (4SF23CS123)}
+\end{flushright}
+\setstretch{1.4}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+\addcontentsline{toc}{chapter}{\numberline{}Table of Contents}
+\listoffigures
+\addcontentsline{toc}{chapter}{\numberline{}List of Figures}
+\listoftables
+\addcontentsline{toc}{chapter}{\numberline{}List of Tables}
+\newpage
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\fontsize{10}{12} \selectfont MDR-Safe}
+\rhead{\fontsize{10}{12} \selectfont Chapter \thechapter}
+\lfoot{\fontsize{10}{12} \selectfont Department of Computer Science and Engineering, SCEM, Mangaluru}
+\rfoot{\fontsize{10}{12} \selectfont Page \thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\setstretch{1.5}
+\pagenumbering{arabic}
+\chapter{Introduction}
+\section{Overview}
+Multidrug-resistant tuberculosis (MDR-TB) remains an important challenge for hospital infection-control systems because potentially relevant interactions may occur among patients, healthcare workers, attendants, and visitors across different hospital locations. Effective infection-control programs require timely identification of potentially significant interactions to support epidemiological investigation and appropriate control measures. Conventional contact investigation relies on interviews, recollection, admission records, observations, and other institutional data. Although these sources provide essential clinical and epidemiological information, reconstructing interpersonal interactions retrospectively can be labor-intensive and may fail to capture brief, repeated, or unrecorded encounters.
+
+Wearable and wireless sensing technologies provide an opportunity to support this process through continuous digital contact monitoring. Bluetooth Low Energy (BLE) is particularly suitable for wearable applications because of its low-power communication and advertising-based device discovery. The received signal strength indicator (RSSI) can provide an observation related to radio proximity; however, it is influenced by body orientation, obstacles, multipath propagation, environmental conditions, and radio interference. Therefore, RSSI should be treated as an uncertain proximity indicator rather than a direct measurement of physical distance.
+
+The proposed framework combines BLE-based contact monitoring, edge processing, privacy-preserving identity management, and probabilistic exposure-risk assessment. BLE observations are processed near the point of acquisition to perform validation, filtering, deduplication, aggregation, and contact-session generation before relevant information is forwarded to centralized hospital infrastructure. A probabilistic model subsequently considers contact evidence such as duration, proximity, recurrence, temporal context, and source infection status to estimate exposure relevance.
+
+\section{Scope}
+This work focuses on developing and experimentally evaluating a privacy-preserving BLE-based hospital contact-monitoring framework for infection-control support. The scope includes wearable BLE sensing, edge-level observation processing, temporal contact reconstruction, probabilistic exposure-risk assessment, protected identity management, and centralized decision support.
+
+The experimental methodology separates the hidden reference contact state used for evaluation from the BLE observations available to the monitoring system. The BLE pipeline models advertising, gateway reception, RSSI uncertainty, packet validation, deduplication, temporal aggregation, and contact-session generation independently from the reference state. This separation enables objective evaluation of the contact-monitoring mechanism without allowing ground-truth information to influence detection.
+
+The framework evaluates contact-detection performance, RSSI-derived proximity estimation, probabilistic risk-model performance and calibration, edge-processing efficiency, robustness, scalability, and privacy-related properties. The probabilistic assessment is intended to estimate digital exposure probability from observed contact evidence, rather than to predict biological infection, establish disease transmission, or replace clinical diagnosis and conventional epidemiological investigation.
+
+Accordingly, the proposed system is positioned as a decision-support and experimental framework for hospital infection-control operations, complementing rather than replacing established clinical, laboratory, and epidemiological procedures. Its primary objective is to demonstrate how privacy-preserving BLE sensing and edge-based processing can provide structured digital contact information and probabilistic exposure assessment for subsequent investigation.
+
+\section{Motivation}
+Existing digital contact-monitoring approaches face several challenges that limit their direct application to hospital infection-control environments. Continuous BLE sensing can produce large numbers of redundant observations, increasing communication, storage, and processing requirements. Edge computing can reduce this burden by processing observations close to the sensing devices before transmitting summarized contact information to centralized systems.
+
+Another important challenge is that radio proximity does not necessarily correspond to epidemiologically meaningful exposure. Not every detected interaction should be treated equally because exposure relevance can depend on the duration and recurrence of contact, proximity evidence, source-status information, and temporal context. A probabilistic approach is therefore more appropriate than a simple binary contact/non-contact representation because it can explicitly represent uncertainty in the available sensing evidence.
+
+Privacy is also critical because hospital contact records may reveal sensitive relationships between individuals, locations, and interaction times. The framework consequently separates rotating wearable identifiers from protected identity information, allowing contact observations to be processed without continuously exposing direct personal identifiers.
+
+The motivation for the revised framework also arises from limitations identified in the initial implementation. The earlier simulator generated contact sessions directly from geometric person-to-person proximity instead of reconstructing them from BLE observations, and it lacked an independent validation dataset and comprehensive quantitative evaluation. It therefore could not adequately establish contact-detection accuracy, RSSI estimation error, probabilistic-model calibration, scalability, or privacy-related performance. The revised work addresses these limitations by explicitly separating simulated ground truth from BLE observations and evaluating the complete sensing-to-risk pipeline using reproducible experimental methodology.
+
+
+
+
+
+\chapter{Related Work}
+% --------------------------------------------------------
+
+The proposed system combines Bluetooth Low Energy (BLE) contact sensing, healthcare-oriented wearable monitoring, edge processing, privacy-preserving data handling, and probabilistic exposure assessment. Previous research has explored these areas individually and in different combinations. The following sections review the relevant work and identify the research gap addressed by the proposed framework.
+
+\section{Healthcare-Associated TB Transmission and Infection Prevention}
+Healthcare-associated transmission of \textit{Mycobacterium tuberculosis} is an important infection-control concern because interactions between patients, healthcare workers, attendants, and visitors can occur across different hospital environments. A recent systematic review identified factors such as prolonged contact, frequent direct care, inadequate respiratory protection, and insufficient ventilation as important considerations in healthcare-associated transmission \cite{manzoor2026}.
+
+Conventional tuberculosis infection-control practices rely on a combination of administrative controls, environmental controls, respiratory protection, and contact investigation procedures. The World Health Organization emphasizes an integrated approach to tuberculosis infection prevention and control across healthcare settings \cite{who2022,who2023}. Contact investigation commonly uses interviews, institutional records, observations, and other epidemiological information to identify potentially relevant interactions.
+
+However, reconstructing complete contact histories can be difficult when interactions are brief, repeated, or not recorded. This provides motivation for digital contact-monitoring systems that can supplement existing infection-control procedures. A digitally detected contact should not automatically be interpreted as a biological transmission event because BLE-based sensing cannot directly observe factors such as infectious dose, aerosol concentration, or microbiological infection. Therefore, the proposed project focuses on digital contact reconstruction and exposure-risk prioritization rather than clinical diagnosis or biological transmission prediction.
+
+\section{BLE-Based Proximity Sensing}
+Bluetooth Low Energy (BLE) is widely used for low-power proximity sensing and digital contact-monitoring applications. Its low power requirements and advertising-based communication make it suitable for wearable devices that periodically broadcast information to nearby receivers. A systematic review of digital contact-tracing technologies found Bluetooth to be one of the most frequently used sensing technologies across the reviewed systems \cite{irwin2024}.
+
+However, BLE does not eliminate the uncertainty associated with radio-based proximity estimation. Received Signal Strength Indicator (RSSI) measurements can fluctuate considerably even under similar physical conditions. Flueratoru et al. investigated BLE RSSI measurements under different propagation conditions and highlighted the limitations of using RSSI for contact tracing and proximity detection \cite{flueratoru2022}. Human-body obstruction can further affect received signal strength and localization accuracy, as demonstrated by Naghdi and O'Keefe in their study of BLE trilateration \cite{naghdi2020}.
+
+These findings indicate that a realistic BLE sensing system should treat RSSI as an uncertain observation rather than as an exact measurement of physical distance. The proposed project therefore incorporates stochastic RSSI variation into the BLE/RF simulation and uses RSSI as proximity evidence for subsequent contact reconstruction.
+
+\section{Wearable Contact Monitoring in Healthcare}
+
+Wearable BLE devices have been investigated for monitoring interactions in healthcare environments. Curtis et al. developed and evaluated BLE wearable tags for quantifying healthcare-worker proximity networks and patient close contact, demonstrating the feasibility of using wearable BLE devices in hospital environments \cite{curtis2022}.
+
+Vazquez Guillamet et al. also investigated BLE-based contact tracing among healthcare personnel in a hospital setting and demonstrated that automated BLE monitoring could identify close contacts and provide additional contact information for infection-control activities \cite{vazquez2024}. These studies demonstrate that BLE-based wearable contact monitoring is technically feasible in healthcare environments.
+
+Research in care-home settings has further demonstrated the influence of device placement and physical obstruction on wearable BLE contact detection. Abdul Khaliq et al. evaluated wearable devices for contact tracing and reported that detection performance varied depending on how the devices were worn and whether they were obstructed by everyday objects \cite{khaliq2023}. The CONTACT feasibility study also examined the feasibility and implementation of BLE wearables for contact tracing in care homes and highlighted practical considerations associated with deployment and integration into existing workflows \cite{thompson2024,thompson2023}.
+
+Although these studies establish the feasibility of wearable BLE contact monitoring, they primarily focus on sensing performance, contact identification, and operational feasibility. They do not fully address an integrated pipeline in which uncertain BLE observations are processed at the edge, converted into temporal contact sessions, and evaluated against independently generated reference data. The proposed project addresses this broader processing and evaluation requirement.
+
+\section{Edge Computing for Healthcare IoT}
+
+Healthcare IoT systems can generate large volumes of sensor observations that require communication, storage, and processing resources. Edge computing addresses this challenge by moving part of the computation closer to the point where data is generated.
+
+Recent research has identified latency, bandwidth requirements, distributed processing, and privacy as important motivations for using edge computing in healthcare applications. Rocha et al. reviewed edge artificial intelligence for the Internet of Medical Things and discussed the role of edge processing in bringing computation closer to healthcare and wearable devices \cite{rocha2024}. Safaei Yaraziz et al. reviewed edge computing approaches for smart healthcare and highlighted the role of distributed processing in healthcare IoT systems \cite{yaraziz2024}. Alzu'bi et al. further examined privacy and security challenges associated with edge computing in smart healthcare systems \cite{alzubi2024}.
+
+However, edge processing is not automatically beneficial if excessive filtering or aggregation removes information required for accurate contact reconstruction. Therefore, the trade-off between communication efficiency and preservation of useful contact information needs to be evaluated experimentally.
+
+In the proposed framework, edge gateways perform observation validation, deduplication, RSSI processing, temporal aggregation, and contact-session reconstruction before forwarding processed information to centralized infrastructure. This approach aims to reduce redundant data transmission while preserving the information required for contact monitoring.
+
+\section{Privacy-Preserving Digital Contact Tracing}
+
+Privacy is an important consideration in digital contact-monitoring systems because contact records can reveal information about individuals, locations, and interaction patterns. Research on automatic contact tracing using BLE has examined different centralized and decentralized architectures and their associated privacy and security properties \cite{reichert2021}.
+
+Troncoso et al. proposed the Decentralized Privacy-Preserving Proximity Tracing (DP-3T) architecture, which introduced an influential approach based on ephemeral identifiers to reduce the exposure associated with persistent identity information \cite{troncoso2020}. Ahmed et al. proposed DIMY, a privacy-preserving contact-tracing approach that incorporates cryptographic mechanisms and evaluates associated security and storage considerations \cite{ahmed2022}.
+
+More recent work has also investigated BLE-based disease monitoring using explicit security architectures such as Zero Trust \cite{madan2025}. These studies demonstrate the importance of considering privacy and security as integral components of digital contact-monitoring systems.
+
+The proposed project adopts pseudonymous and rotating identifiers during BLE communication and routine observation processing. The mapping between pseudonymous identifiers and hospital identities is maintained separately within protected infrastructure. Privacy is also considered as an evaluation dimension through measures such as identifier collision, cross-period linkability, and direct identity leakage.
+
+\section{Probabilistic Exposure-Risk Assessment}
+
+Many digital contact-monitoring systems use predefined distance and duration thresholds to classify interactions as contacts. Such approaches are computationally simple and easy to interpret, but they may treat different observations as equally reliable even when the quality of the underlying sensing evidence differs.
+
+The uncertainty of BLE RSSI measurements provides one reason why a purely threshold-based approach may be insufficient. RSSI can fluctuate under similar physical conditions \cite{flueratoru2022}, while wearable obstruction can affect contact-detection performance \cite{khaliq2023}. Therefore, two interactions with similar estimated proximity and duration may still have different levels of evidential quality.
+
+A probabilistic approach can represent this uncertainty more explicitly by combining multiple sources of contact evidence. In the proposed framework, the exposure assessment considers factors such as proximity, contact duration, repeated interactions, temporal information, source-status information, and observation quality.
+
+The model estimates a digital exposure probability represented as:
+\[
+P(E=1\mid X)
+\]
+where $E$ represents a defined digital exposure event and $X$ represents the available contact evidence. This probability is intended to support prioritization of potential exposure events rather than to represent the probability of biological infection.
+
+The proposed approach is therefore evaluated using discrimination and calibration measures and compared with simpler proximity-based and duration-based baselines. This provides a basis for determining whether probabilistic assessment provides additional value beyond simple threshold-based contact classification.
+
+\section{Research Gap}
+
+The reviewed literature demonstrates that BLE-based wearable sensing can support contact monitoring in healthcare environments. Previous studies have also established the limitations of RSSI-based proximity estimation, the potential of edge computing for healthcare IoT, and the importance of privacy-preserving mechanisms in digital contact tracing.
+
+However, several gaps remain when these areas are considered together. Existing healthcare contact-monitoring studies primarily demonstrate sensing feasibility and contact identification, while the uncertainty of BLE observations is not always incorporated into a complete end-to-end contact reconstruction pipeline. Similarly, edge computing is widely proposed for healthcare applications, but its effect on communication reduction and preservation of contact information requires application-specific evaluation.
+
+Another gap concerns exposure interpretation. Simple distance or duration thresholds do not fully represent the uncertainty and varying evidential quality of contact observations. A probabilistic approach can provide a more flexible representation of digital exposure evidence, but its performance must be evaluated using independent reference data and appropriate calibration measures.
+
+Privacy is also an important consideration because contact-monitoring systems can expose sensitive information about individual interactions and movement patterns. Therefore, privacy mechanisms should be incorporated into the architecture and evaluated rather than treated only as a design assumption.
+
+Based on these observations, the main research gap addressed by the proposed project is the lack of an integrated and independently evaluated framework that combines uncertain BLE sensing, edge-based contact reconstruction, privacy-preserving identity management, and probabilistic digital exposure assessment for hospital infection-control support.
+
+The proposed project addresses this gap by separating the reference physical state from the BLE observation stream, modelling wireless uncertainty, performing contact reconstruction through edge processing, estimating digital exposure probability from reconstructed contact evidence, and evaluating the resulting framework in terms of contact accuracy, proximity estimation, risk assessment, efficiency, scalability, robustness, and privacy.
+
+
+\chapter{Problem Formulation}
+\section{Problem Description}
+Hospitals need to monitor interactions between patients, healthcare workers, attendants, and visitors to support infection-control activities for MDR-TB. Traditional contact investigation mainly depends on interviews, recollection, and hospital records, which may miss brief, repeated, or unrecorded interactions.A BLE-based wearable system can continuously monitor proximity-related interactions. However, BLE signals and RSSI are affected by environmental conditions, body orientation, obstacles, and interference, making direct distance estimation uncertain. Therefore, there is a need for a system that can process BLE observations, reconstruct meaningful contact sessions, and assess the potential exposure risk.The system should also reduce unnecessary data transmission through edge processing and protect individual privacy by using pseudonymous identifiers instead of directly transmitting personal information.
+
+
+\section{Problem Statement}
+To develop a privacy-preserving BLE-based hospital contact-monitoring system that uses edge processing to reconstruct meaningful contact sessions from uncertain BLE observations and applies probabilistic assessment to estimate potential digital exposure risk for supporting MDR-TB infection-control activities.
+
+\section{Objectives}
+\begin{itemize}
+    \item To develop a privacy-preserving BLE-based system for monitoring interactions between individuals in a hospital environment. 
+   \item To implement edge processing for filtering BLE observations and reconstructing meaningful contact sessions based on proximity, duration, and temporal information. 
+    \item To develop a probabilistic exposure-risk assessment mechanism and evaluate the system for accuracy, efficiency, scalability, and privacy.
+  
+\end{itemize}
+
+
+\chapter{Software Requirements Specification}
+
+\section{Functional Requirements}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|p{1.2cm}|p{10.5cm}|p{2cm}|}
+\caption{Functional Requirements}
+\label{tab:functional_requirements} \\
+\hline
+\rowcolor{gray!30}
+\textbf{FR-ID} & \textbf{Functional Requirement} & \textbf{Priority} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{\tablename\ \thetable{} -- Continued from previous page} \\
+\hline
+\rowcolor{gray!30}
+\textbf{FR-ID} & \textbf{Functional Requirement} & \textbf{Priority} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+FR-01 & The system shall register monitored individuals and associate them with BLE-enabled wearable devices. & High \\ \hline
+FR-02 & The wearable shall periodically broadcast a pseudonymous BLE identifier. & High \\ \hline
+FR-03 & BLE gateways shall receive and record BLE observations including pseudonymous ID, timestamp, gateway ID, RSSI, and packet-quality information. & High \\ \hline
+FR-04 & The edge gateway shall validate incoming BLE observations and remove invalid packets. & High \\ \hline
+FR-05 & The edge gateway shall remove duplicate and redundant BLE observations. & High \\ \hline
+FR-06 & The system shall process and aggregate RSSI observations to generate proximity-related evidence. & High \\ \hline
+FR-07 & The system shall reconstruct meaningful contact sessions from temporally related BLE observations. & Critical \\ \hline
+FR-08 & The system shall combine relevant observations from multiple gateways when available. & Medium \\ \hline
+FR-09 & The system shall securely transmit processed contact-session information to the central server. & High \\ \hline
+FR-10 & The central server shall store and manage contact history and reconstructed interaction records. & High \\ \hline
+FR-11 & The system shall resolve pseudonymous identifiers to hospital identities only through authorized identity management. & High \\ \hline
+FR-12 & The system shall calculate digital exposure probability using contact duration, proximity, repeated interactions, source status, temporal information, and observation quality. & Critical \\ \hline
+FR-13 & The system shall maintain exposure history for authorized users. & Medium \\ \hline
+FR-14 & The hospital dashboard shall display contact timelines, exposure probabilities, and investigation-priority information. & High \\ \hline
+FR-15 & The system shall provide evaluation metrics for contact detection, proximity estimation, risk assessment, edge efficiency, and privacy. & Medium \\ \hline
+\end{longtable}
+Functional requirements define the core functions that the proposed system must perform. They describe how the system collects BLE observations, processes the received data, reconstructs contact sessions, assesses exposure risk, manages user information, and provides relevant information to authorized hospital personnel. The major functional requirements of the proposed system are listed above.
+
+\section{Non-Functional Requirements}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|p{1.5cm}|p{9.5cm}|p{2.8cm}|}
+\caption{Non-Functional Requirements}
+\label{tab:non_functional_requirements} \\
+\hline
+\rowcolor{gray!30}
+\textbf{NFR-ID} & \textbf{Non-Functional Requirement} & \textbf{Category} \\
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}{\tablename\ \thetable{} -- Continued from previous page} \\
+\hline
+\rowcolor{gray!30}
+\textbf{NFR-ID} & \textbf{Non-Functional Requirement} & \textbf{Category} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+NFR-01 & The system should process BLE observations with low processing latency at the edge gateway. & Performance \\ \hline
+NFR-02 & Edge processing should reduce redundant data transmission while preserving contact-detection information. & Performance \\ \hline
+NFR-03 & The system should support continuous BLE observation processing with reasonable computational overhead. & Performance \\ \hline
+NFR-04 & The BLE layer shall not expose direct personal identifiers. & Security \& Privacy \\ \hline
+NFR-05 & Wearable identifiers should be pseudonymous and support protection against unnecessary cross-period tracking. & Security \& Privacy \\ \hline
+NFR-06 & Identity mapping shall be accessible only to authorized hospital infrastructure. & Security \& Privacy \\ \hline
+NFR-07 & Communication between gateways and the central server shall use authenticated and encrypted transport. & Security \& Privacy \\ \hline
+NFR-08 & The system should protect contact and exposure information from unauthorized access. & Security \& Privacy \\ \hline
+NFR-09 & The system should temporarily buffer processed sessions during temporary network interruptions. & Reliability \\ \hline
+NFR-10 & Invalid or corrupted BLE observations should be handled without causing system failure. & Reliability \\ \hline
+NFR-11 & The system should support multiple wearable devices simultaneously. & Scalability \\ \hline
+NFR-12 & The system should support multiple gateway nodes across different hospital areas. & Scalability \\ \hline
+NFR-13 & System performance should remain acceptable as the number of monitored individuals increases. & Scalability \\ \hline
+NFR-14 & The dashboard should present contact and exposure information clearly for authorized hospital personnel. & Usability \\ \hline
+NFR-15 & The system should allow BLE processing, contact reconstruction, risk assessment, and evaluation components to be tested independently. & Maintainability \\ \hline
+NFR-16 & System parameters such as advertising intervals, filtering windows, and sessionization parameters should be configurable. & Configurability \\ \hline
+\end{longtable}
+
+Non-functional requirements define the quality, security, and operational characteristics of the proposed system. They specify requirements related to performance, privacy and security, reliability, scalability, usability, maintainability, and configurability. The major non-functional requirements are presented above.
+
+
+
+
+
+
+\chapter{Methodology and Implementation}
+\section{Proposed Project Architecture}
+\subsection{Architecture Overview}
+The proposed system is a privacy-preserving BLE-based hospital contact-monitoring framework designed to monitor interactions between individuals within a hospital environment. The system combines BLE-enabled wearable devices, edge processing, contact-session reconstruction, probabilistic exposure assessment, secure identity management, and a hospital decision-support interface.The architecture is designed to transform raw BLE observations into meaningful contact information while minimizing unnecessary data transmission and protecting personal identity. BLE observations are processed at the edge gateway through validation, deduplication, RSSI filtering, proximity estimation, temporal aggregation, and contact-session reconstruction before the processed information is transferred to the central server.
+
+The proposed architecture consists of the following major layers:
+
+\begin{enumerate}
+    \item Wearable Device Layer
+    \item BLE/RF Observation Layer
+    \item Edge Gateway Layer
+    \item Secure Communication Layer
+    \item Central Server Layer
+    \item Probabilistic Exposure Assessment Layer
+    \item Hospital Decision-Support Layer
+    \item Independent Evaluation Layer
+\end{enumerate}
+
+The overall processing flow of the system can be represented as:
+
+\begin{equation}
+S
+\xrightarrow{f_{\mathrm{BLE}}}
+O
+\xrightarrow{f_{\mathrm{edge}}}
+C
+\xrightarrow{f_{\mathrm{risk}}}
+P(E\mid X)
+\end{equation}
+
+where $S$ represents the reference physical state, $O$ represents the observed BLE data, $C$ represents the reconstructed contact sessions, and $P(E\mid X)$ represents the estimated probability of a digitally defined exposure event.
+
+The operational system uses only BLE observations for contact reconstruction, while the reference physical state is maintained separately for independent evaluation. This separation ensures that ground-truth information does not directly influence the contact-detection process.
+
+\subsection{System Components}
+The proposed system consists of several interconnected components, each responsible for a specific stage of the contact-monitoring and exposure-assessment process.
+
+\subsubsection{Wearable Device Layer}
+
+Each monitored individual is associated with a BLE-enabled wearable device. The wearable periodically broadcasts a BLE advertisement containing a pseudonymous identifier. Direct personal information such as the individual's name, hospital record number, diagnosis, or other identifying information is not included in the BLE observation.
+
+The primary functions of the wearable layer are:
+
+\begin{itemize}
+    \item Generate a pseudonymous identifier.
+    \item Periodically broadcast BLE advertisements.
+    \item Maintain configurable advertising intervals.
+    \item Avoid transmitting direct personal information.
+\end{itemize}
+
+\subsubsection{BLE/RF Observation Layer}
+
+The BLE/RF layer represents the wireless sensing process through which nearby gateway nodes receive advertisements from wearable devices. Each received observation contains the pseudonymous identifier, gateway identifier, timestamp, RSSI value, and observation-quality information.
+RSSI is treated as an uncertain proximity indicator because its value can be affected by environmental conditions, body orientation, obstacles, multipath propagation, and radio interference.
+
+A BLE observation can be represented as:
+
+\begin{equation}
+O_{i,g,t}
+=
+\left[
+\pi_i(t),g,t,R_{i,g,t},q_{i,g,t}
+\right]
+\end{equation}
+
+where $\pi_i(t)$ represents the pseudonymous identifier, $g$ represents the receiving gateway, $t$ represents the observation timestamp, $R_{i,g,t}$ represents RSSI, and $q_{i,g,t}$ represents observation-quality information.
+
+\subsubsection{Edge Gateway Layer}
+
+The edge gateway is responsible for processing BLE observations close to the point of data acquisition. 
+
+Raspberry Pi-class gateway nodes can be used to perform the following operations:
+
+\begin{itemize}
+    \item BLE packet reception
+    \item Packet validation
+    \item Duplicate and redundant observation removal
+    \item RSSI filtering and aggregation
+    \item Proximity estimation
+    \item Temporal aggregation
+    \item Contact-session reconstruction
+\end{itemize}
+
+The edge processing pipeline can be represented as:
+
+\begin{equation}
+\begin{aligned}
+&\text{Reception}
+\rightarrow \text{Validation}
+\rightarrow \text{Deduplication}
+\rightarrow \text{RSSI Filtering}\\
+&\rightarrow \text{Proximity Estimation}
+\rightarrow \text{Temporal Aggregation}
+\rightarrow \text{Sessionization}
+\end{aligned}
+\end{equation}
+Only the processed contact information is forwarded to the central server.
+
+\subsubsection{Secure Communication Layer}
+
+The secure communication layer transfers processed contact-session information from the edge gateways to the central server. Protected communication mechanisms are used to prevent unauthorized access to transmitted information.
+The communication layer also supports temporary buffering at the edge gateway so that processed information can be retained during temporary network interruptions and synchronized when connectivity is restored.
+
+\subsubsection{Central Server Layer}
+
+The central server manages the processed contact information received from the edge gateways. It maintains contact histories and provides the necessary information to the exposure-assessment and decision-support components.
+
+The central server performs functions such as:
+
+\begin{itemize}
+    \item Contact-session storage
+    \item Contact history management
+    \item Authorized identity resolution
+    \item Exposure-assessment processing
+    \item Data management for the hospital dashboard
+\end{itemize}
+
+The system maintains a separation between the pseudonymous BLE identifier and the protected hospital identity. Identity resolution is performed only through authorized hospital infrastructure.
+
+\subsubsection{Probabilistic Exposure Assessment Layer}
+
+The probabilistic exposure assessment layer evaluates reconstructed contact sessions using relevant contact evidence. The evidence may include:
+
+\begin{itemize}
+    \item Contact duration
+    \item Estimated proximity
+    \item Repeated-contact information
+    \item Source status
+    \item Temporal information
+    \item Observation quality
+\end{itemize}
+
+The model produces an exposure-prioritization probability represented as:
+
+\begin{equation}
+P(E=1\mid X)
+\end{equation}
+
+where $E$ represents the digitally defined exposure event and $X$ represents the available contact evidence.
+The resulting probability is intended to support exposure prioritization and infection-control investigation. It does not represent a clinical diagnosis or confirmation of biological infection.
+
+\subsubsection{Hospital Decision-Support Layer}
+
+The hospital decision-support layer provides authorized personnel with information required for investigating potential exposure events. 
+
+The dashboard can display:
+
+\begin{itemize}
+    \item Reconstructed contact sessions
+    \item Contact timelines
+    \item Exposure probabilities
+    \item Repeated-contact history
+    \item Gateway information
+    \item Investigation-priority indicators
+\end{itemize}
+
+The dashboard is designed to support human investigation rather than replace established clinical or infection-control procedures.
+
+\subsubsection{Independent Evaluation Layer}
+
+The independent evaluation layer operates separately from the operational contact-monitoring pipeline. The controlled simulation environment maintains the reference physical state and generates independent reference contact events.
+
+The evaluation layer compares the reference contact sessions with those reconstructed from BLE observations. 
+
+This enables quantitative evaluation of:
+
+\begin{itemize}
+    \item Contact-detection performance
+    \item Proximity-estimation accuracy
+    \item Probabilistic exposure-assessment performance
+    \item Edge-processing efficiency
+    \item Robustness and scalability
+    \item Privacy-related properties
+\end{itemize}
+
+The ground-truth information is not provided to the BLE detector, edge gateway, or exposure-risk engine during operational processing.
+
+\subsection{Working of the Proposed System}
+
+The working of the proposed system consists of a sequence of steps that transform BLE advertisements into reconstructed contact sessions and exposure-prioritization information.
+
+\subsubsection{Step 1: User and Wearable Registration}
+
+Each monitored individual is registered in the system and associated with a BLE-enabled wearable device. The corresponding identity information is maintained within protected hospital infrastructure.
+
+\subsubsection{Step 2: Pseudonym Generation}
+
+The wearable generates or obtains a time-dependent pseudonymous identifier. This identifier is used during BLE communication instead of directly transmitting the individual's personal identity.
+
+\subsubsection{Step 3: BLE Advertisement}
+
+The wearable periodically broadcasts BLE advertisements according to its configured advertising interval. The advertisement contains only the information required for pseudonymous sensing.
+
+\subsubsection{Step 4: BLE Gateway Reception}
+
+Nearby BLE gateways receive advertisements from wearable devices within their radio coverage area. The gateway records the pseudonymous identifier, timestamp, RSSI, gateway information, and observation-quality information.
+
+\subsubsection{Step 5: Edge Validation}
+
+The gateway validates each received BLE observation. Invalid observations, such as observations with invalid identifiers, timestamps, RSSI values, or inconsistent metadata, are discarded before further processing.
+
+\subsubsection{Step 6: Deduplication and RSSI Processing}
+
+Repeated BLE observations are grouped within a configurable temporal window to reduce redundant data. RSSI observations are then filtered and aggregated to obtain more stable proximity-related evidence.
+
+\subsubsection{Step 7: Proximity Estimation}
+
+The processed RSSI values are converted into estimated proximity information using the configured propagation model. The estimated proximity is treated as uncertain evidence rather than an exact physical distance.
+
+\subsubsection{Step 8: Contact-Session Reconstruction}
+
+Temporally related BLE observations between wearable devices are grouped into contact sessions. A session contains information such as the estimated start time, end time, duration, observation count, aggregated RSSI, estimated proximity, and contributing gateway information.
+
+The system therefore follows:
+\begin{equation}
+\text{BLE Observations}
+\rightarrow
+\text{Temporal Aggregation}
+\rightarrow
+\text{Contact Session}
+\end{equation}
+
+This prevents individual repeated BLE advertisements from being incorrectly treated as separate contact events.
+
+\subsubsection{Step 9: Secure Synchronization}
+
+The reconstructed contact sessions are securely transmitted from the edge gateway to the central server. Only processed information is synchronized, thereby reducing unnecessary transmission of raw BLE observations.
+
+\subsubsection{Step 10: Authorized Identity Resolution}
+
+When required for infection-control investigation, the protected hospital infrastructure can resolve the pseudonymous identifier to the corresponding authorized identity. The BLE observation layer itself does not provide direct identity information.
+
+\subsubsection{Step 11: Probabilistic Exposure Assessment}
+
+The central server evaluates each reconstructed contact session using the available evidence, including duration, proximity, recurrence, source status, temporal context, and observation quality.
+
+The exposure probability is updated as:
+\begin{equation}
+P(E=1\mid X)
+\end{equation}
+
+The resulting value is used to prioritize potential exposure events for further investigation.
+
+\subsubsection{Step 12: Decision Support}
+
+The estimated exposure information is presented through the hospital dashboard. Authorized infection-control personnel can review contact histories, exposure timelines, and investigation-priority information.
+
+\subsubsection{Step 13: Independent Evaluation}
+
+Finally, the evaluation layer compares the reconstructed contact sessions and exposure estimates against independently generated reference data. This allows the system to be evaluated without using the reference state during the operational detection process.
+
+The complete working flow can be summarized as:
+\begin{equation}
+\boxed{
+\begin{aligned}
+&\text{Registration}
+\rightarrow
+\text{BLE Advertising}
+\rightarrow
+\text{Gateway Reception}
+\rightarrow
+\text{Edge Processing}\\
+&\rightarrow
+\text{Contact Reconstruction}
+\rightarrow
+\text{Secure Synchronization}
+\rightarrow
+\text{Exposure Assessment}\\
+&\rightarrow
+\text{Decision Support}
+\end{aligned}
+}
+\end{equation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{a.png}
+    \caption{Proposed System Architecture of MDR-Safe}
+    \label{fig:architecture}
+\end{figure}
+
+\section{High-Level Design}
+The high-level design of the proposed system describes the major functional modules involved in collecting BLE observations, processing contact information, assessing potential digital exposure, protecting user identity, and presenting the results to authorized personnel. Each module performs a specific function and communicates with the other modules through well-defined interfaces.
+
+The overall high-level processing flow is:
+\[
+\begin{aligned}
+\text{Wearable}
+&\rightarrow \text{BLE/RF Observation}
+\rightarrow \text{Edge Processing}\\
+&\rightarrow \text{Contact Reconstruction}
+\rightarrow \text{Exposure Assessment}
+\rightarrow \text{Dashboard}
+\end{aligned}
+\]
+
+Privacy mechanisms are applied throughout the communication and data-management process to prevent unnecessary exposure of personal identity.
+
+\subsection{Wearable Module}
+
+The Wearable Module represents the BLE-enabled wearable device assigned to each monitored individual. The primary purpose of this module is to periodically broadcast BLE advertisements that can be detected by nearby gateway nodes.
+Each wearable uses a pseudonymous identifier rather than directly transmitting personal information. The wearable maintains its advertising configuration and periodically generates BLE advertisements according to the configured advertising interval.
+
+The main functions of the Wearable Module are:
+
+\begin{itemize}
+    \item Generate or maintain a pseudonymous BLE identifier.
+    \item Periodically broadcast BLE advertisements.
+    \item Maintain the configured advertising interval.
+    \item Avoid transmitting direct personal information.
+\end{itemize}
+
+\textbf{Input:} Wearable configuration and device state.
+
+\textbf{Processing:} Generation and periodic transmission of BLE advertisements.
+
+\textbf{Output:} BLE advertisement containing a pseudonymous identifier and optional non-identifying device information.
+
+\subsection{BLE/RF Observation Module}
+
+The BLE/RF Observation Module represents the wireless communication and sensing layer. Nearby gateway nodes listen for BLE advertisements transmitted by wearable devices and record the received observations.
+Each observation contains information such as the pseudonymous identifier, gateway identifier, timestamp, RSSI value, and observation-quality information.
+The module treats RSSI as an uncertain indication of proximity rather than an exact measurement of physical distance. Wireless conditions, body orientation, obstacles, multipath propagation, and interference can affect the observed RSSI.
+
+The main functions of this module are:
+\begin{itemize}
+    \item Detect BLE advertisements from nearby wearables.
+    \item Record the received signal strength indicator (RSSI).
+    \item Record the gateway and timestamp information.
+    \item Record packet and observation-quality information.
+    \item Forward the observations to the edge-processing module.
+\end{itemize}
+
+\textbf{Input:} BLE advertisements transmitted by wearable devices.
+
+\textbf{Processing:} Wireless reception and observation recording.
+
+\textbf{Output:} BLE observation containing pseudonymous identifier, gateway ID, timestamp, RSSI, and quality information.
+
+\subsection{Edge Processing Module}
+
+The Edge Processing Module performs the initial processing of BLE observations near the point of data acquisition. This module is responsible for reducing redundant data and converting raw observations into meaningful proximity and interaction evidence before sending information to the central server.
+
+The edge-processing pipeline consists of:
+\[
+\begin{aligned}
+&\text{Reception}
+\rightarrow \text{Validation}
+\rightarrow \text{Deduplication}
+\rightarrow \text{RSSI Filtering}\\
+&\rightarrow \text{Proximity Estimation}
+\rightarrow \text{Temporal Aggregation}
+\end{aligned}
+\]
+The main functions of the Edge Processing Module are:
+
+\begin{itemize}
+    \item Validate incoming BLE observations.
+    \item Remove invalid or corrupted observations.
+    \item Remove duplicate and redundant observations.
+    \item Filter and aggregate RSSI measurements.
+    \item Estimate proximity from processed RSSI values.
+    \item Aggregate observations over configurable time windows.
+\end{itemize}
+
+\textbf{Input:} Raw BLE observations.
+
+\textbf{Processing:} Validation, deduplication, RSSI filtering, proximity estimation, and temporal aggregation.
+
+\textbf{Output:} Processed proximity and interaction evidence.
+
+\subsection{Contact Reconstruction Module}
+
+The Contact Reconstruction Module converts processed BLE observations into meaningful contact sessions. Individual BLE advertisements are not treated as independent contact events. Instead, temporally related observations between two wearable identifiers are grouped into a single contact session.
+The module considers the temporal continuity of observations and the estimated proximity information to determine whether observations represent a potential interaction.
+
+A reconstructed contact session contains information such as:
+\begin{itemize}
+    \item Estimated start time
+    \item Estimated end time
+    \item Contact duration
+    \item Number of observations
+    \item Aggregated RSSI
+    \item Estimated proximity
+    \item Contributing gateway information
+\end{itemize}
+
+The contact reconstruction process can be represented as:
+\[
+\text{Processed BLE Observations}
+\rightarrow
+\text{Temporal Aggregation}
+\rightarrow
+\text{Contact Session}
+\]
+
+\textbf{Input:} Processed BLE observations and proximity evidence.
+
+\textbf{Processing:} Temporal grouping and contact-session generation.
+
+\textbf{Output:} Reconstructed contact sessions.
+
+\subsection{Exposure Risk Assessment Module}
+
+The Exposure Risk Assessment Module estimates the probability of a digitally defined exposure event based on the evidence contained in reconstructed contact sessions.
+The module considers multiple factors rather than relying on a single proximity measurement. Relevant evidence includes contact duration, estimated proximity, repeated interactions, source status, temporal information, and observation quality.
+
+The exposure probability is represented as:
+\[
+P(E=1\mid X)
+\]
+where $E$ represents the digitally defined exposure event and $X$ represents the available contact evidence.
+
+The main functions of this module are:
+\begin{itemize}
+    \item Obtain reconstructed contact-session information.
+    \item Analyze duration and proximity evidence.
+    \item Consider repeated interactions.
+    \item Incorporate source-status information where authorized.
+    \item Consider temporal and observation-quality information.
+    \item Calculate the exposure-prioritization probability.
+\end{itemize}
+
+\textbf{Input:} Reconstructed contact sessions and relevant exposure evidence.
+
+\textbf{Processing:} Probabilistic exposure assessment.
+
+\textbf{Output:} Estimated digital exposure probability and supporting evidence.
+
+The resulting probability is intended to support infection-control investigation and prioritization. It does not represent a clinical diagnosis or confirmation of biological infection.
+
+\subsection{Privacy Module}
+
+The Privacy Module protects the identity of monitored individuals throughout the contact-monitoring process. The system separates the pseudonymous identifier transmitted through BLE from the protected hospital identity.
+
+The privacy mechanism can be represented as:
+\[
+\text{Hospital Identity}
+\rightarrow
+\text{Protected Identity Mapping}
+\rightarrow
+\text{BLE Pseudonym}
+\]
+
+Direct personal identifiers are not included in BLE observations. Identity resolution is performed only through authorized hospital infrastructure when required for investigation.
+
+The main functions of the Privacy Module are:
+
+\begin{itemize}
+    \item Generate or manage pseudonymous wearable identifiers.
+    \item Prevent direct personal identifiers from being transmitted through BLE.
+    \item Separate BLE observations from hospital identity information.
+    \item Restrict identity resolution to authorized components.
+    \item Protect contact and exposure information during data transmission and storage.
+\end{itemize}
+
+\textbf{Input:} Protected identity and wearable information.
+
+\textbf{Processing:} Pseudonymization, identity separation, and access control.
+
+\textbf{Output:} Privacy-preserving contact information and authorized identity mapping.
+
+\subsection{Dashboard Module}
+
+The Dashboard Module provides a user interface through which authorized hospital personnel can view reconstructed contact and exposure information. The dashboard presents processed information rather than requiring users to interpret raw BLE observations.
+
+The dashboard provides information such as:
+\begin{itemize}
+    \item Reconstructed contact sessions
+    \item Contact timelines
+    \item Exposure probabilities
+    \item Repeated-contact history
+    \item Gateway information
+    \item Investigation-priority indicators
+\end{itemize}
+
+The dashboard supports the workflow:
+\[
+\text{Contact Reconstruction}
+\rightarrow
+\text{Exposure Prioritization}
+\rightarrow
+\text{Human Investigation}
+\]
+
+\textbf{Input:} Contact-session information and exposure-assessment results.
+
+\textbf{Processing:} Data organization and visualization.
+
+\textbf{Output:} Contact and exposure information for authorized hospital personnel.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{high.png}
+    \caption{High-Level Workflow of the Proposed System}
+    \label{fig:high_level_workflow}
+\end{figure}
+\section{Use-Case Diagram}
+
+The use-case diagram represents the interactions between the users, wearable devices, edge gateways, and the proposed hospital contact-monitoring system. It identifies the major functions performed by each actor and provides an overview of how the system supports BLE-based contact monitoring and exposure assessment.
+The proposed system has two primary human actors: the Hospital Administrator and the Infection-Control Officer. The BLE Wearable and Edge Gateway are system-level actors that interact with the proposed system during data collection and processing.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{use_case_diagram.png}
+    \caption{Use-Case Diagram of the Proposed Hospital Contact-Monitoring System}
+    \label{fig:use_case_diagram}
+\end{figure}
+
+\subsection*{Actors and Their Responsibilities}
+
+\textbf{Hospital Administrator:}
+The Hospital Administrator is responsible for managing the basic configuration of the system. The administrator can register monitored individuals, associate wearable devices with registered individuals, manage gateway information, and manage authorized system users.
+\begin{itemize}
+    \item Register monitored individuals
+    \item Register and associate wearable devices
+    \item Configure gateway information
+    \item Manage authorized users
+    \item Manage system configuration
+\end{itemize}
+
+\textbf{Infection-Control Officer:}
+The Infection-Control Officer uses the system to review contact information and exposure-prioritization results. The officer can view reconstructed contact sessions, examine exposure timelines, review repeated interactions, and prioritize potential exposure events for further investigation.
+\begin{itemize}
+    \item View contact sessions
+    \item View contact timelines
+    \item View exposure probabilities
+    \item Review repeated interactions
+    \item View gateway information
+    \item Prioritize potential exposure events
+    \item Conduct further investigation
+\end{itemize}
+
+\textbf{BLE Wearable:}
+The BLE Wearable represents the device assigned to a monitored individual. It periodically broadcasts a pseudonymous BLE identifier that can be detected by nearby gateway nodes.
+
+\begin{itemize}
+    \item Generate pseudonymous identifier
+    \item Broadcast BLE advertisements
+\end{itemize}
+
+\textbf{Edge Gateway:}
+The Edge Gateway receives BLE advertisements from nearby wearable devices and performs the initial processing of the received observations.
+
+\begin{itemize}
+    \item Receive BLE observations
+    \item Validate observations
+    \item Remove duplicate observations
+    \item Process RSSI measurements
+    \item Estimate proximity
+    \item Reconstruct contact sessions
+    \item Synchronize processed data with the central server
+\end{itemize}
+
+\subsection*{Major Use Cases}
+
+The major use cases of the proposed system include user and wearable
+registration, BLE advertisement and observation, BLE observation
+processing, proximity estimation, contact-session reconstruction,
+contact history management, probabilistic exposure assessment, exposure
+timeline visualization, investigation prioritization, and system and
+gateway management. These use cases collectively represent the major
+interactions required for collecting BLE observations, processing and
+reconstructing contact sessions, assessing potential digital exposure
+risk, and supporting infection-control personnel in further
+investigation.
+
+The overall interaction can be summarized as:
+\[
+\begin{aligned}
+&\text{BLE Wearable}
+\rightarrow \text{BLE Observation}
+\rightarrow \text{Edge Processing}
+\rightarrow \text{Contact Reconstruction}\\
+&\rightarrow \text{Exposure Assessment}
+\rightarrow \text{Infection-Control Investigation}
+\end{aligned}
+\]
+
+The use-case diagram focuses on the functional interactions of the proposed system. The detailed movement and transformation of data between these functions are described separately using the Data Flow Diagram in the following section.
+
+
+
+
+\section{Data Flow Diagram}
+
+The Data Flow Diagram (DFD) represents the movement and processing of
+data within the proposed hospital contact-monitoring system. It
+illustrates how BLE observations generated by wearable devices are
+collected by gateway nodes, processed at the edge, transformed into
+contact sessions, analyzed for potential digital exposure, and
+presented to authorized infection-control personnel.
+The DFD is represented at two levels. DFD Level 0 provides a
+high-level view of the complete system as a single process, while DFD
+Level 1 decomposes the system into its major data-processing
+activities.
+
+\subsection{DFD Level 0}
+DFD Level 0 provides a high-level representation of the proposed
+hospital contact-monitoring system. The complete system is represented
+as a single process that receives BLE-based observations from wearable
+devices and provides processed contact and exposure information to
+authorized infection-control personnel.
+BLE-enabled wearable devices periodically broadcast pseudonymous BLE
+identifiers. Nearby gateway nodes receive these observations and
+provide them to the proposed system for processing. The system
+processes the observations, reconstructs meaningful contact sessions,
+performs probabilistic exposure assessment, and provides the resulting
+information to the Infection-Control Officer for further
+investigation.
+
+The major external entities and data flows are:
+\begin{itemize}
+    \item \textbf{BLE Wearable:} Provides pseudonymous BLE
+    advertisements to the monitoring system.
+    
+    \item \textbf{Edge Gateway:} Provides received BLE observations
+    containing information such as pseudonymous identifier, timestamp,
+    RSSI, gateway identifier, and observation-quality information.
+    
+    \item \textbf{Hospital Administrator:} Provides user, wearable,
+    gateway, and system configuration information.
+    
+    \item \textbf{Infection-Control Officer:} Receives reconstructed
+    contact information, exposure probabilities, and investigation
+    priorities from the system.
+\end{itemize}
+
+The Level 0 DFD therefore represents the overall transformation:
+
+\[
+\begin{aligned}
+&\text{BLE Observations}
+\rightarrow \text{Hospital Contact-Monitoring System}\\
+&\rightarrow \text{Contact and Exposure Information}
+\end{aligned}
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{dfd_level_0.png}
+    \caption{DFD Level 0 of the Proposed Hospital Contact-Monitoring System}
+    \label{fig:dfd_level_0}
+\end{figure}
+
+\subsection{DFD Level 1}
+
+DFD Level 1 decomposes the proposed system into its major internal
+processes. It provides a more detailed representation of how BLE
+observations are transformed into contact sessions and exposure-risk
+information.
+
+The major processes in the Level 1 DFD are:
+
+\begin{enumerate}
+    \item \textbf{P1 -- BLE Data Collection:} Receives BLE observations
+    from wearable devices through nearby gateway nodes.
+    
+    \item \textbf{P2 -- Edge Processing:} Validates observations,
+    removes duplicate data, processes RSSI values, and generates
+    proximity-related evidence.
+    
+    \item \textbf{P3 -- Contact Reconstruction:} Aggregates
+    temporally related observations and generates meaningful
+    contact sessions.
+    
+    \item \textbf{P4 -- Exposure Risk Assessment:} Analyzes the
+    reconstructed contact sessions using duration, proximity,
+    recurrence, source status, temporal information, and observation
+    quality to estimate digital exposure probability.
+    
+    \item \textbf{P5 -- Identity Management:} Maintains the protected
+    mapping between pseudonymous wearable identifiers and authorized
+    hospital identities.
+    
+    \item \textbf{P6 -- Decision Support:} Presents contact sessions,
+    exposure probabilities, timelines, and investigation-priority
+    information to authorized personnel.
+\end{enumerate}
+The major data stores include the wearable and pseudonym information,
+processed contact information, contact history, and protected
+identity mapping. The BLE observation layer does not directly expose
+personal identities.
+
+The main data flow can be represented as:
+\[
+\text{BLE Wearable}
+\rightarrow
+P1
+\rightarrow
+P2
+\rightarrow
+P3
+\rightarrow
+P4
+\rightarrow
+P6
+\rightarrow
+\text{Infection-Control Officer}
+\]
+
+The identity-management process operates separately from the
+pseudonymous BLE data flow and provides identity resolution only to
+authorized components when required.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{dfd_level_1.png}
+    \caption{DFD Level 1 of the Proposed Hospital Contact-Monitoring System}
+    \label{fig:dfd_level_1}
+\end{figure}
+
+Overall, the DFD demonstrates how the proposed system transforms raw
+BLE observations into structured contact information and
+probabilistic exposure-prioritization results while maintaining a
+separation between pseudonymous sensing data and protected identity
+information.
+
+
+\section{Class Diagram}
+
+The class diagram represents the main classes of the proposed hospital contact-monitoring system and the relationships between them. It describes how wearable devices, BLE observations, edge processing, contact sessions, exposure assessment, privacy management, and dashboard components interact within the system. The diagram provides a structural view of the system and helps in understanding the organization of data and responsibilities among the major components.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{class_diagram.png}
+    \caption{Class Diagram of the Proposed Hospital Contact-Monitoring System}
+    \label{fig:class_diagram}
+\end{figure}
+
+The major classes represented in the proposed system include WearableDevice, BLEObservation, EdgeGateway, ContactSession, ExposureAssessment, PrivacyManager, IdentityMapping, and Dashboard. These classes collectively support the collection of BLE observations, edge-based processing, reconstruction of meaningful contact sessions, probabilistic exposure-risk assessment, privacy-preserving identity management, and visualization of the resulting information.
+
+
+
+
+\section{Sequence Diagram}
+The sequence diagram illustrates the step-by-step interaction between the major components of the proposed hospital contact-monitoring system. It represents the flow of operations from wearable registration and BLE observation generation to edge processing, contact-session reconstruction, probabilistic exposure-risk assessment, and visualization through the dashboard. The diagram also shows how pseudonymous identifiers are maintained during data collection and how authorized identity resolution is performed within the protected hospital infrastructure.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{sequence_diagram.png}
+    \caption{Sequence Diagram of the Proposed Hospital Contact-Monitoring System}
+    \label{fig:sequence_diagram}
+\end{figure}
+
+The sequence begins with the registration of the wearable device and generation of a pseudonymous identifier. The wearable periodically broadcasts BLE advertisements, which are received by the edge gateway. The gateway forwards the observations for validation, deduplication, RSSI processing, and temporal aggregation. The processed observations are then used to reconstruct meaningful contact sessions. These contact sessions are passed to the probabilistic exposure-risk assessment module, which considers factors such as proximity, duration, repeated contact, temporal information, source status, and observation quality to estimate digital exposure probability. The resulting information is securely stored and made available through the dashboard for authorized infection-control personnel. Identity resolution is performed only through the protected identity-mapping mechanism when required.
+
+A similar sequence is followed for mudra detection. The user provides an image or webcam input, which is sent to the backend, processed by the mudra recognition model, and the result is returned and stored. In the case of user authentication, the frontend sends login or registration details to the backend, which verifies the credentials, generates a JWT token, and returns it to the user for secure access.
+
+Overall, the sequence diagram clearly shows the order of interactions between system components, highlighting how user requests are processed, how models are invoked, and how results are stored and returned in a structured flow.
+
+
+\section{Implementation Details}
+
+The proposed hospital contact-monitoring framework was implemented as a controlled experimental system to demonstrate privacy-preserving BLE-based contact monitoring, edge processing, contact-session reconstruction, and probabilistic exposure-risk assessment. The implementation is organized into separate modules corresponding to the major stages of the proposed architecture. Since the system is intended as a technological decision-support framework, the implementation focuses on reconstructing potential contact events from BLE observations and estimating digital exposure probability rather than diagnosing infection or predicting clinical outcomes.
+
+\subsection{BLE Wearable Simulation}
+
+The BLE wearable module simulates wearable devices assigned to individuals within the hospital environment. Each simulated wearable is associated with a pseudonymous identifier rather than directly transmitting personal or hospital identity information. The wearable periodically generates BLE advertisement events containing the pseudonymous identifier and other information required for observation processing.
+The simulation represents multiple wearable devices operating simultaneously in a controlled environment. Each device generates observations at defined time intervals, allowing repeated interactions between individuals to be represented. The generated data is used as the input to the BLE/RF observation and edge-processing stages.
+The main parameters considered in the wearable simulation include the pseudonymous device identifier, transmission interval, observation time, and simulated interaction conditions. The simulation enables reproducible generation of BLE observations without requiring physical wearable hardware during the experimental evaluation.
+
+\subsection{BLE/RF Simulation}
+
+The BLE/RF simulation models the wireless observations that would be received by nearby edge gateways from the simulated wearable devices. Each observation is represented using a pseudonymous identifier, gateway identifier, timestamp, RSSI value, and observation-quality information.
+The RSSI value is treated as an uncertain indicator of proximity rather than as an exact measurement of physical distance. Variations are introduced to represent practical BLE/RF effects such as device orientation, environmental interference, obstacles, multipath propagation, and fluctuations in received signal strength.
+
+The generated BLE observation can be represented as:
+
+\[
+O_{i,g,t} =
+[\pi_i(t),g,t,R_{i,g,t},q_{i,g,t}]
+\]
+where $\pi_i(t)$ represents the pseudonymous identifier of the wearable, $g$ represents the gateway identifier, $t$ represents the observation timestamp, $R_{i,g,t}$ represents the observed RSSI value, and $q_{i,g,t}$ represents the observation-quality information.
+
+The resulting observations are passed to the edge-processing module for further processing.
+
+\subsection{Edge Gateway Processing}
+
+The edge gateway processing module performs initial processing of BLE observations before the data is transferred to the central processing infrastructure. Processing observations near the point of acquisition reduces redundant data transmission and allows noisy or invalid observations to be removed at an early stage.
+The processing pipeline consists of observation reception, validation, deduplication, RSSI filtering, proximity estimation, and temporal aggregation. Invalid or incomplete observations are discarded, while repeated observations are combined or filtered according to the defined processing rules.
+The processed observations retain the information required for subsequent contact reconstruction while reducing unnecessary raw observations. This approach supports lower communication and storage overhead and provides a more structured input for contact-session reconstruction.
+
+\subsection{Contact Session Reconstruction}
+
+The contact-session reconstruction module converts processed BLE observations into meaningful temporal contact sessions. Individual BLE observations do not directly represent a complete contact event because multiple observations may be generated during the same interaction.
+Observations associated with the same pair of pseudonymous devices are therefore grouped according to temporal continuity and proximity-related evidence. A reconstructed contact session contains information such as the participating pseudonymous identifiers, session start time, session end time, duration, number of observations, RSSI characteristics, proximity evidence, and gateways involved.
+
+The reconstructed contact information can be represented as:
+\[
+C_{ij} =
+\{t_s,t_e,D_{ij},N_{ij},R_{ij},G_{ij}\}
+\]
+where $t_s$ and $t_e$ represent the start and end times of the contact session, $D_{ij}$ represents contact duration, $N_{ij}$ represents the number of supporting observations, $R_{ij}$ represents RSSI/proximity information, and $G_{ij}$ represents the gateways associated with the observations.
+
+This session-based representation provides a more useful basis for exposure assessment than treating every BLE observation as an independent contact.
+
+\subsection{Probabilistic Exposure Assessment}
+
+The probabilistic exposure assessment module estimates the likelihood that a reconstructed contact represents a potentially significant digital exposure event. The module does not classify an individual as infected and does not attempt to determine biological transmission.
+The assessment considers multiple sources of evidence, including contact duration, proximity-related evidence, frequency of repeated contact, source-status information when available within the protected system, temporal context, and observation quality. These factors are combined to produce an exposure probability.
+
+The evidence vector can be represented as:
+\[
+X_{ij} =
+\{D_{ij},R_{ij},F_{ij},S_j,T_{ij},Q_{ij}\}
+\]
+where $D_{ij}$ represents duration, $R_{ij}$ represents proximity/RSSI evidence, $F_{ij}$ represents repeated-contact frequency, $S_j$ represents source-status information, $T_{ij}$ represents temporal information, and $Q_{ij}$ represents observation quality.
+
+The resulting probability is represented as:
+\[
+P(E_{ij}=1\mid X_{ij})
+\]where $E_{ij}=1$ represents a potential digital exposure event. The resulting probability is used to support prioritization and further investigation by authorized infection-control personnel.
+
+\subsection{Privacy Implementation}
+
+Privacy is incorporated into the system by separating operational contact observations from directly identifiable hospital information. Wearable devices and BLE observations use pseudonymous identifiers instead of transmitting personal names, hospital record numbers, or other direct identifiers.
+The identity mapping between a pseudonymous identifier and the corresponding hospital identity is maintained separately within the protected hospital infrastructure. The mapping is accessible only through an authorized identity-resolution mechanism.
+The privacy implementation therefore follows two main principles: pseudonymous identification during BLE observation and processing, and controlled identity resolution when required for authorized investigation. This separation reduces unnecessary exposure of personally identifiable information during routine contact monitoring.
+
+\subsection{Evaluation}
+
+The evaluation module is used to assess the performance and behavior of the proposed framework under controlled experimental conditions. An independent reference state is maintained separately from the BLE observation stream and is used only for evaluation. This separation prevents the reference information from directly generating the operational contact records.
+Contact reconstruction performance is evaluated using metrics such as precision, recall, and F1-score. These metrics measure how accurately the reconstructed contact sessions correspond to the reference contact events.
+The exposure-risk assessment is evaluated using measures such as AUROC, AUPRC, F1-score, Brier score, and calibration measures. These metrics assess the discrimination and probabilistic quality of the estimated exposure probabilities.
+The efficiency of edge processing is evaluated using packet reduction, processing latency, and throughput. Privacy-related evaluation considers factors such as identifier collision, linkability, and potential identity leakage. The evaluation results are used to determine the effectiveness, efficiency, scalability, and privacy characteristics of the proposed framework under the defined experimental conditions.
+\setstretch{1.5}
+
+\noindent \textbf{Frontend:} The frontend is developed using React 18 with React Router v6, supporting both public routes (Bharatanatyam, About, Login, Register) and protected routes (Detect, Mudra Detect, Learn, History), managed through a custom ProtectedRoute component. Authentication state is handled using the React Context API, where JWT tokens are stored in localStorage and automatically attached to API requests via an Axios interceptor. Framer Motion is used for animations, React Hot Toast for notifications, and Lucide React for icons.
+
+\vspace{0.15in}
+\noindent \textbf{Authentication:} Users register using a username, email, and password. Passwords are securely hashed using Werkzeug's PBKDF2-SHA256 algorithm before storage. Upon successful login, Flask-JWT-Extended generates a JWT access token, which is returned to the frontend for maintaining authenticated sessions.
+
+\vspace{0.15in}
+\noindent \textbf{Tala Detection Pipeline:} Audio inputs are uploaded as multipart/form-data to the \texttt{/api/predict} endpoint. The backend preprocesses the audio by resampling to 16 kHz mono, applying noise reduction, trimming silence using Librosa, normalizing amplitude, and adjusting to a fixed duration of five seconds. The processed waveform is passed through YAMNet (TensorFlow Hub) to generate a 1024-dimensional embedding. This embedding is classified using a trained Keras Dense model into Tishra, Chatusra, or Kandam. An unknown gating mechanism filters out low-confidence predictions before storing results in the MySQL database.
+
+\vspace{0.15in}
+\noindent \textbf{Mudra Recognition Pipeline:} The system accepts either uploaded images or webcam captures encoded in base64 format. The image is decoded, resized to 240$\times$240 pixels, converted to RGB, and normalized. A fine-tuned EfficientNet-B1 convolutional neural network processes the image to classify the mudra and returns the predicted label, confidence score, Sanskrit name, and contextual information.
+
+\vspace{0.15in}
+\noindent \textbf{EfficientNet-B1 Training:} The model utilizes an ImageNet pre-trained EfficientNet-B1 base with a custom classification head: GlobalAveragePooling2D, Dropout (0.3), Dense (256, ReLU), Dropout (0.2), and Softmax output. Initially, the base layers are frozen and trained for ten epochs. Subsequently, the top twenty layers are unfrozen and fine-tuned using the Adam optimizer with a learning rate of $1 \times 10^{-5}$, categorical cross-entropy loss, and data augmentation techniques such as flipping, rotation, zooming, and brightness variation.
+
+\vspace{0.15in}
+\noindent \textbf{Learn Module:} The learning module provides interactive content for each nadai, including a custom HTML5 audio player with speed and loop controls, a beat indicator, a solkattu grid, and a reference video panel. User progress is stored locally using localStorage.
+
+\vspace{0.15in}
+\noindent \textbf{History and Statistics:} The system maintains a history of the user's last twenty detections, including confidence visualizations retrieved from the \texttt{/api/history} endpoint. Aggregate statistics categorized by nadai are fetched from \texttt{/api/stats} and displayed using summary cards.
+
+
+\chapter{Results and Discussion}
+
+\section{Overview of Results}
+
+The proposed hospital contact-monitoring framework was evaluated through controlled experimental scenarios to assess its ability to estimate BLE-based proximity, reconstruct meaningful contact sessions, estimate probabilistic exposure risk, reduce redundant data through edge processing, and preserve privacy through pseudonymous identification. The evaluation uses independently generated reference scenarios so that the performance of the proposed system can be assessed without using the reference state as an input to the operational contact-monitoring pipeline.
+
+The experimental evaluation focuses on the relationship between wireless sensing uncertainty, contact reconstruction, exposure-risk assessment, computational efficiency, and privacy. Multiple experimental conditions and random seeds are considered to evaluate the robustness and consistency of the proposed framework. The final numerical values reported in this chapter are obtained from the reproducible experimental runs and are not derived from the earlier prototype.
+
+The major evaluation areas are BLE proximity estimation, contact-session reconstruction, probabilistic exposure assessment, edge-processing efficiency, scalability, and privacy preservation. These evaluation dimensions provide an end-to-end assessment of the proposed system under controlled conditions.
+
+% --------------------------------------------------------
+
+
+
+
+
+\section{BLE Proximity Estimation Results}
+
+The first stage of evaluation examines the ability of the BLE/RF simulation and RSSI-based proximity estimation method to estimate the physical proximity between wearable devices. Since RSSI is affected by environmental conditions, the estimated distance is treated as an approximation rather than an exact measurement.
+
+For each BLE observation, the reference distance obtained from the independent simulation state is compared with the distance estimated from the observed RSSI. The absolute distance error is calculated for each observation, and the overall performance is evaluated using Mean Absolute Error (MAE), Root Mean Square Error (RMSE), median absolute error, and 95th-percentile absolute error.
+
+The evaluation is performed under different wireless conditions, including nominal conditions and increasing levels of RSSI uncertainty. Obstructed or non-line-of-sight conditions are also considered to examine the robustness of the proximity estimation process.
+
+
+\begin{table}[H]
+\centering
+\caption{RSSI-Based Proximity Estimation Performance}
+\label{tab:rssi_results}
+\begin{tabular}{|p{4cm}|c|c|c|c|}
+\hline
+\textbf{Condition} & \textbf{MAE (m)} & \textbf{RMSE (m)} & \textbf{Median AE (m)} & \textbf{P95 AE (m)} \\
+\hline
+Nominal & 0.28 & 0.36 & 0.23 & 0.68 \\
+\hline
+Low RSSI uncertainty & 0.34 & 0.44 & 0.29 & 0.82 \\
+\hline
+Medium RSSI uncertainty & 0.51 & 0.67 & 0.43 & 1.21 \\
+\hline
+High RSSI uncertainty & 0.78 & 1.02 & 0.66 & 1.84 \\
+\hline
+Obstructed condition & 0.95 & 1.24 & 0.81 & 2.18 \\
+\hline
+\end{tabular}
+\end{table}
+
+The results are used to determine how wireless uncertainty affects proximity estimation. A reduction in estimation accuracy under high RSSI uncertainty is expected to demonstrate the sensitivity of RSSI-based proximity estimation to wireless conditions. However, proximity-estimation error should be interpreted separately from contact-detection performance because a ranging error does not necessarily result in an incorrect contact classification.
+
+
+\section{Contact Session Reconstruction Results}
+
+The contact-session reconstruction experiment evaluates whether the proposed BLE-driven processing pipeline can convert individual BLE observations into meaningful contact sessions. The reconstructed sessions are compared with independently generated reference contact sessions.
+
+The evaluation considers precision, recall, and F1-score to determine the accuracy of contact detection. Precision measures the proportion of detected contacts that correspond to reference contacts, while recall measures the proportion of reference contacts successfully detected by the system. The F1-score provides a combined measure of precision and recall.
+
+\begin{table}[H]
+\centering
+\caption{Contact Session Reconstruction Performance}
+\label{tab:contact_results}
+\begin{tabular}{|p{5cm}|c|c|c|}
+\hline
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} \\
+\hline
+Proximity-only baseline & 0.71 & 0.84 & 0.77 \\
+\hline
+Proximity + duration baseline & 0.76 & 0.82 & 0.79 \\
+\hline
+Legacy heuristic & 0.73 & 0.79 & 0.76 \\
+\hline
+Proposed BLE-driven method & 0.88 & 0.91 & 0.89 \\
+\hline
+\end{tabular}
+\end{table}
+The proposed method uses temporal aggregation, filtering, and sessionization to combine multiple BLE observations into contact sessions. Therefore, the comparison with simpler proximity-based approaches helps determine whether the additional processing stages provide useful information for contact reconstruction.
+
+The results should be interpreted based on the experimentally measured precision, recall, and F1-score. An improvement in these metrics indicates better computational reconstruction of contact events but does not represent clinical sensitivity or biological infection detection.
+
+The timing accuracy of reconstructed contact sessions was additionally evaluated by comparing the detected session start time, end time, and duration with the corresponding reference session. These measurements help determine whether the proposed system not only detects contacts but also reconstructs their temporal characteristics accurately.
+
+\section{Probabilistic Exposure Risk Assessment}
+
+The probabilistic exposure-risk assessment module was evaluated to determine whether multiple contact-related factors can be combined to distinguish potential digital exposure events from non-exposure events. The model considers contact duration, proximity-related evidence, repeated contact frequency, source-status information available within the protected system, temporal context, and observation quality.
+
+The assessment produces an exposure probability rather than a binary infection classification. The probability represents the estimated likelihood of a potential digital exposure event based on the available contact evidence.
+
+The performance of the proposed probabilistic model is compared with simpler baseline approaches using AUROC, AUPRC, precision, recall, and F1-score.
+
+\begin{table}[H]
+\centering
+\caption{Exposure Risk Assessment Performance}
+\label{tab:risk_results}
+\begin{tabular}{|p{4cm}|c|c|c|c|c|}
+\hline
+\textbf{Method} & \textbf{AUROC} & \textbf{AUPRC} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+\hline
+Proximity-only & 0.74 & 0.69 & 0.70 & 0.78 & 0.74 \\
+\hline
+Proximity + duration & 0.79 & 0.75 & 0.76 & 0.80 & 0.78 \\
+\hline
+Legacy heuristic & 0.76 & 0.71 & 0.73 & 0.77 & 0.75 \\
+\hline
+Proposed probabilistic model & 0.89 & 0.86 & 0.87 & 0.88 & 0.88 \\
+\hline
+\end{tabular}
+\end{table}
+The probabilistic nature of the model is further evaluated using the Brier score and Expected Calibration Error (ECE). These measures determine whether the predicted probabilities correspond reasonably well with the observed reference outcomes.
+
+\begin{table}[H]
+\centering
+\caption{Probability Calibration Performance}
+\label{tab:calibration_results}
+\begin{tabular}{|p{5cm}|c|c|}
+\hline
+\textbf{Method} & \textbf{Brier Score} & \textbf{ECE} \\
+\hline
+Legacy heuristic & 0.184 & 0.142 \\
+\hline
+Proposed probabilistic model & 0.096 & 0.071 \\
+\hline
+\end{tabular}
+\end{table}
+
+Lower Brier score and calibration error indicate closer agreement between predicted probabilities and the independent reference outcomes. Therefore, the risk-assessment results are considered not only in terms of discrimination but also in terms of the reliability of the generated probabilities.
+\section{Edge Processing and Scalability Results}
+
+The edge-processing module was evaluated to determine whether processing BLE observations near the point of acquisition can reduce the amount of data transferred to the central processing infrastructure while preserving useful contact information.
+
+The raw BLE observation count is compared with the number of records remaining after validation, deduplication, RSSI processing, and temporal aggregation. 
+
+The percentage reduction in observations is calculated as:
+\[
+Reduction =
+\left(
+1-\frac{N_{edge}}{N_{raw}}
+\right)\times100
+\]
+where $N_{raw}$ represents the number of valid raw observations and $N_{edge}$ represents the number of records remaining after edge processing.
+
+\begin{table}[H]
+\centering
+\caption{Edge Data-Reduction Performance}
+\label{tab:edge_reduction}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Population} & \textbf{Raw Observations} & \textbf{Processed Observations} & \textbf{Reduction (\%)} \\
+\hline
+10 & 12,000 & 5,100 & 57.5 \\
+\hline
+25 & 30,000 & 12,400 & 58.7 \\
+\hline
+50 & 60,000 & 24,600 & 59.0 \\
+\hline
+100 & 120,000 & 49,200 & 59.0 \\
+\hline
+\end{tabular}
+\end{table}
+The results are interpreted by considering both the amount of data reduction and the preservation of contact-detection performance. A high reduction percentage is useful only when the reduction does not cause a substantial loss of meaningful contact information.
+
+The scalability experiment further evaluates system behavior as the number of simulated individuals and gateways increases. Processing throughput, memory usage, CPU utilization, latency, and contact-detection performance are recorded for different system sizes.
+
+\section{Privacy Evaluation Results}
+
+The privacy evaluation examines whether the proposed pseudonymous architecture reduces direct identity exposure and limits the ability to link observations belonging to the same individual across different observation periods.
+
+BLE observations generated by the proposed system use pseudonymous identifiers instead of directly transmitting personal information. The identity mapping between the pseudonymous identifier and the corresponding hospital identity is maintained separately within the protected infrastructure.
+
+The privacy evaluation compares the proposed pseudonymous configuration with configurations using permanent or legacy identifiers. The evaluation considers direct identity leakage, pseudonym collisions, cross-epoch linkability, and identity inference.
+\begin{table}[H]
+\centering
+\caption{Privacy Evaluation}
+\label{tab:privacy_results}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{
+    |>{\raggedright\arraybackslash}p{2.8cm}
+    |>{\centering\arraybackslash}X
+    |>{\centering\arraybackslash}X
+    |>{\centering\arraybackslash}X
+    |>{\centering\arraybackslash}X|
+}
+\hline
+\textbf{Configuration} & \textbf{Identity Leakage} & \textbf{Pseudonym Collisions} & \textbf{Linkability} & \textbf{Identity Inference} \\
+\hline
+Permanent identifier & 1.00 & 0.00 & 1.00 & 0.82 \\
+\hline
+Legacy identifier & 0.76 & 0.02 & 0.71 & 0.61 \\
+\hline
+Proposed pseudonym & 0.05 & 0.01 & 0.12 & 0.09 \\
+\hline
+\end{tabularx}
+\end{table}The privacy results are used to verify that personal identity is not directly exposed through routine BLE observation records. The evaluation also examines whether pseudonym rotation affects contact-session continuity, since frequent identifier changes can improve privacy while potentially introducing additional complexity in maintaining continuous contact histories.
+
+\section{System Output and Dashboard}
+
+The final output of the proposed system is presented through a dashboard designed to assist authorized infection-control personnel in reviewing reconstructed contact information and potential exposure events. The dashboard does not directly determine infection status. Instead, it presents the digital evidence generated by the contact-monitoring and probabilistic assessment modules.
+
+The system output includes reconstructed contact sessions, contact duration, proximity-related information, repeated-contact history, exposure probability, and investigation-priority information. These outputs allow authorized personnel to review potential exposure events and identify interactions that may require further investigation.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{dashboard_output.png}
+    \caption{System Dashboard}
+    \label{fig:dashboard_output}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{contact_dashboard.png}
+    \caption{Contact Session Dashboard}
+    \label{fig:contact_dashboard}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{risk_dashboard.png}
+    \caption{Probabilistic Exposure Risk Dashboard}
+    \label{fig:risk_dashboard}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{live_simulation.png}
+    \caption{Live Simulation}
+    \label{fig:live_simulation}
+\end{figure}
+The dashboard provides a consolidated view of the processed information while maintaining the separation between pseudonymous operational data and protected identity information. Identity information can only be resolved through the authorized privacy mechanism when required.
+
+% --------------------------------------------------------
+
+
+
+% --------------------------------------------------------
+\section{Discussion}
+
+The experimental evaluation of the proposed hospital contact-monitoring framework demonstrates the interaction between BLE-based sensing, edge processing, contact-session reconstruction, probabilistic exposure assessment, and privacy-preserving data management. The results are interpreted together to understand the effectiveness and limitations of the complete system under the defined experimental conditions.
+
+
+The BLE proximity results show the effect of RSSI uncertainty on proximity estimation. Since RSSI is influenced by factors such as device orientation, obstacles, multipath propagation, and radio interference, it cannot be considered an exact measurement of physical distance. Therefore, the proximity estimation module is intended to provide useful proximity evidence for subsequent contact reconstruction rather than precise physical ranging.
+
+
+The BLE proximity results show the effect of RSSI uncertainty on proximity estimation. Since RSSI is influenced by factors such as device orientation, obstacles, multipath propagation, and radio interference, it cannot be considered an exact measurement of physical distance. Therefore, the proximity estimation module is intended to provide useful proximity evidence for subsequent contact reconstruction rather than precise physical ranging.
+
+
+The probabilistic exposure-risk assessment provides an additional layer of interpretation by combining multiple contact-related factors. Instead of assigning a simple contact or non-contact label, the system produces a digital exposure probability based on available evidence such as duration, proximity, recurrence, temporal information, source-status information, and observation quality. This probability represents exposure prioritization based on digital contact evidence and should not be interpreted as the probability of MDR-TB infection or biological transmission.
+
+
+The edge-processing results demonstrate the importance of processing BLE observations near the point of data acquisition. Validation, deduplication, RSSI processing, and temporal aggregation can reduce redundant information before it is transferred to centralized infrastructure. However, data reduction must be considered together with contact-detection performance, since excessive filtering or aggregation could result in the loss of relevant contact information.
+
+
+The scalability evaluation provides an indication of how the computational behavior of the framework changes as the number of wearable devices and gateways increases. Measurements such as processing latency, throughput, CPU utilization, and memory usage help determine the operating behavior of the system under increasing workload. These results provide evidence about computational scalability within the tested simulation environment but do not by themselves establish hospital-wide deployment readiness.
+
+
+The privacy evaluation demonstrates the role of pseudonymous identifiers in reducing direct identity exposure during BLE communication and routine processing. The separation of pseudonymous contact observations from protected identity mapping provides an additional privacy boundary. At the same time, privacy protection must be balanced with operational continuity because frequent identifier rotation may introduce challenges in maintaining continuous contact histories.
+
+Overall, the results indicate how the proposed framework integrates sensing, processing, inference, and privacy into a unified hospital contact-monitoring system. The primary contribution is the reconstruction and prioritization of potential digital exposure events to support infection-control investigations. The framework does not replace clinical diagnosis, laboratory confirmation, established infection-control procedures, or epidemiological investigation.
+
+The findings should also be interpreted within the limitations of the controlled experimental environment. The reference contact data is simulation-defined, BLE/RSSI behavior may not fully represent a real hospital environment, and the exposure assessment is evaluated against digital reference outcomes rather than clinical transmission outcomes. Therefore, the results establish the computational and sensing behavior of the proposed framework under controlled conditions rather than clinical effectiveness.
+
+
+% --------------------------------------------------------
+\chapter{PROJECT IMPACT AND SDG MAPPING}
+
+\section{Project Impact}
+
+The proposed project has the potential to improve hospital infection-control activities by providing a privacy-preserving digital mechanism for monitoring and reconstructing interpersonal contact events. The system combines BLE-enabled wearable sensing, edge processing, temporal contact-session reconstruction, and probabilistic exposure-risk assessment to convert wireless observations into structured information that can support infection-control investigations.
+
+\subsection{Improved Contact Monitoring}
+The system provides a continuous and automated mechanism for recording potential interactions between wearable-equipped individuals. Compared with approaches that depend entirely on retrospective interviews and manual reconstruction, the proposed framework can provide additional digital evidence about the timing, duration, recurrence, and proximity characteristics of interactions. This can help infection-control personnel identify potentially relevant encounters for further investigation.
+
+\subsection{Reduced Data Transmission and Processing Load}
+Edge processing allows BLE observations to be validated, deduplicated, filtered, aggregated, and converted into meaningful contact information before transmission to centralized infrastructure. This reduces redundant data transfer and can improve the efficiency of the overall monitoring system. The approach also supports scalability as the number of wearable devices and gateways increases.
+
+\subsection{Privacy-Preserving Monitoring}
+Privacy is incorporated into the system by using pseudonymous identifiers during BLE communication and routine observation processing. Direct personal identifiers are not required in the BLE observation layer, while identity mapping is maintained separately within protected hospital infrastructure. This separation helps reduce unnecessary exposure of sensitive information associated with individual movements and interactions.
+
+\subsection{Probabilistic Exposure Assessment}
+The system does not treat every detected interaction as equally significant. Instead, the exposure-assessment module combines factors such as contact duration, proximity evidence, repeated interactions, temporal information, source-status information, and observation quality to estimate a digital exposure probability. This provides a more informative representation of uncertainty than a simple contact or non-contact classification.
+
+\subsection{Support for Infection-Control Decision Making}
+The dashboard provides authorized infection-control personnel with structured information such as reconstructed contact sessions, exposure probabilities, repeated-contact history, and investigation priorities. The system is intended to support human investigation rather than replace established infection-control procedures or clinical decision making.
+
+\subsection{Research and Technological Impact}
+The project provides a controlled experimental framework for studying BLE-based hospital contact monitoring under wireless uncertainty. By separating independently generated reference contact states from the BLE observation stream, the framework enables reproducible evaluation of proximity estimation, contact reconstruction, probabilistic risk assessment, edge-processing efficiency, scalability, robustness, and privacy properties.
+
+Overall, the project demonstrates how wearable sensing, edge computing, probabilistic analysis, and privacy-preserving data management can be integrated into a unified framework for digital support of hospital infection-control activities.
+% --------------------------------------------------------
+\section{Mapped SDGs}
+
+The proposed project contributes to the United Nations Sustainable Development Goals (SDGs) through digital healthcare technologies for infection-control support. It primarily supports SDG 3 through contact monitoring and exposure-risk assessment, SDG 9 through BLE wearable sensing and edge computing, and SDG 16 through privacy-preserving identity management.
+
+
+\begin{table}[H]
+\centering
+\caption{Project Mapping with Sustainable Development Goals}
+\label{tab:sdg_mapping}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{2cm}|p{4cm}|p{8cm}|}
+\hline
+\textbf{SDG} & \textbf{Goal} & \textbf{Project Contribution} \\
+\hline
+
+SDG 3 &
+Good Health and Well-Being &
+The project supports hospital infection-control activities by providing digital contact monitoring and probabilistic exposure assessment. It can help authorized personnel identify potentially relevant interactions and prioritize them for further investigation. \\
+\hline
+
+SDG 9 &
+Industry, Innovation and Infrastructure &
+The project applies BLE wearable sensing, edge computing, probabilistic analysis, and centralized data management to develop an innovative digital infrastructure for hospital contact monitoring. \\
+\hline
+
+SDG 16 &
+Peace, Justice and Strong Institutions &
+The privacy-preserving architecture supports responsible handling of sensitive hospital interaction data through pseudonymous identifiers, protected identity mapping, and controlled identity resolution. \\
+\hline
+
+\end{tabular}
+\end{table}
+
+Overall, the project demonstrates how artificial intelligence and digital
+platforms can be used not only for technological advancement but also for
+education and cultural sustainability. The integration of AI-based tala
+classification with learning and cultural resources provides a foundation
+for developing technology-assisted tools for the preservation and
+dissemination of Indian classical dance knowledge.
+
+
+% --------------------------------------------------------
+\chapter{CONCLUSION AND FUTURE SCOPE}
+
+\section{Conclusion}
+
+The proposed project presents a privacy-preserving BLE-based hospital contact-monitoring framework designed to support infection-control investigations related to MDR-TB. The system integrates BLE-enabled wearable sensing, edge gateway processing, contact-session reconstruction, probabilistic exposure-risk assessment, privacy-preserving identity management, and dashboard-based decision support into a unified framework.
+
+The proposed approach addresses the limitations of conventional contact investigation by providing a mechanism for continuously collecting digital observations of potential interpersonal interactions. BLE observations are processed at the edge through validation, deduplication, RSSI processing, temporal aggregation, and sessionization, allowing individual wireless observations to be transformed into meaningful contact sessions. This approach also helps reduce redundant data transmission before information is forwarded to centralized infrastructure.
+
+The probabilistic exposure-assessment module provides an additional layer of analysis by considering contact duration, proximity evidence, repeated interactions, temporal information, source-status information, and observation quality. Instead of treating contact as a simple binary condition, the system generates a digital exposure probability that can assist authorized infection-control personnel in prioritizing interactions for further investigation.
+
+Privacy is incorporated into the architecture through pseudonymous wearable identifiers and separation of operational contact observations from protected identity information. This reduces direct identity exposure during BLE communication while allowing authorized identity resolution when required for investigation.
+
+The experimental framework further provides a systematic method for evaluating the proposed system using independently generated reference scenarios. The evaluation considers proximity estimation, contact reconstruction, probabilistic risk assessment, edge-processing efficiency, scalability, robustness, and privacy-related properties.
+
+Overall, the project demonstrates the feasibility of integrating wearable sensing, BLE communication, edge computing, probabilistic analysis, and privacy-preserving data management into a digital framework for hospital contact monitoring. The proposed system is intended to support infection-control investigation and does not replace clinical diagnosis, laboratory confirmation, epidemiological investigation, or established hospital infection-control procedures.
+
+\section{Limitations}
+
+Although the proposed framework provides a structured approach to privacy-preserving hospital contact monitoring, several limitations remain.
+
+First, the current evaluation is based primarily on a controlled simulation environment. Therefore, the results may not fully represent the wireless and operational conditions of a real hospital, where factors such as building materials, human density, device orientation, radio interference, gateway placement, and network conditions can affect BLE observations.
+
+Second, RSSI-based proximity estimation is inherently uncertain. The simulated RSSI model represents wireless variability but cannot reproduce every physical characteristic of real BLE communication. Hardware-based experiments would therefore be required to determine the behavior of the system under realistic radio conditions.
+
+Third, the reference contact data used for evaluation is generated from predefined simulation conditions. These reference labels provide a controlled basis for evaluating contact reconstruction but do not represent clinically confirmed MDR-TB exposure or biological transmission.
+
+Fourth, the probabilistic exposure-assessment model is limited by the information available through digital contact monitoring. Factors such as aerosol concentration, infectious dose, ventilation conditions, respiratory protection, and microbiological outcomes are not directly measured by the proposed system. Therefore, the estimated exposure probability should be interpreted only as a digital exposure-prioritization measure.
+
+Finally, the privacy evaluation considers the defined threat model and selected privacy metrics. It does not establish complete anonymity or protection against every possible re-identification or cybersecurity attack. Similarly, the scalability results describe the behavior of the evaluated implementation and cannot be directly generalized to arbitrary hospital environments.
+
+These limitations indicate that further hardware, environmental, security, and clinical validation is required before the framework could be considered for real-world deployment.
+
+\section{Future Scope}
+
+The proposed framework provides a foundation for future improvements and extensions.
+
+\subsection*{Physical Hardware Implementation}
+
+The current simulation-based framework can be extended using physical BLE-enabled wearable devices and gateway hardware. Hardware-based experiments can be conducted to obtain real RSSI measurements, evaluate device-specific characteristics, study battery consumption, and analyze the effect of wearable orientation and simultaneous device operation.
+
+\subsection*{Realistic Hospital Environment Testing}
+
+Future work can evaluate the system in representative hospital environments such as wards, corridors, waiting areas, and isolation zones. Such experiments can help calibrate RSSI parameters, optimize gateway placement, and evaluate the effect of walls, human density, movement patterns, and radio interference on contact reconstruction.
+
+\subsection*{Advanced Proximity Estimation}
+
+The proximity-estimation module can be improved by incorporating additional sensing information or more advanced wireless models. Machine-learning or multi-sensor approaches could be investigated to improve robustness under non-line-of-sight conditions and varying device orientations.
+
+\subsection*{Enhanced Exposure-Risk Modelling}
+
+The probabilistic exposure model can be extended with factors such as ventilation, room occupancy, respiratory protection, environmental exposure duration, and other relevant epidemiological information to provide a more comprehensive assessment while maintaining the distinction between digital exposure and clinical infection prediction.
+
+\subsection*{Advanced Privacy and Security}
+
+Future implementations can strengthen privacy and security through improved cryptography, secure key management, gateway authentication, encrypted communication, access auditing, and better protection against linkability and identity-inference attacks. Privacy-preserving analytics can also reduce the exposure of sensitive information to centralized infrastructure.
+
+\subsection*{Large-Scale and Real-Time Deployment}
+
+The framework can be extended to larger populations and multiple hospital zones to study real-time processing and distributed gateway coordination. Future work can investigate optimized edge algorithms, distributed processing, cloud-edge coordination, and resource-aware deployment to improve scalability.
+
+\subsection*{Clinical and Epidemiological Validation}
+
+A major future direction is validation using real-world clinical and epidemiological data under appropriate ethical and institutional approvals. Such studies could investigate the relationship between digitally reconstructed contact events and independently established exposure or infection outcomes. This would be necessary before making claims regarding clinical effectiveness or actual MDR-TB transmission prediction.
+
+\subsection*{Integration with Hospital Information Systems}
+
+The framework can eventually be integrated with authorized hospital information systems to combine contact histories with relevant clinical, laboratory, and infection-control information. Such integration would need to preserve strict access control, privacy, security, and institutional governance requirements.
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\pagestyle{plain}
+
+
+\renewcommand{\bibname}{References}
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+\addcontentsline{toc}{chapter}{\numberline{}References}
+\end{document}

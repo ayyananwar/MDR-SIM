@@ -1,0 +1,57 @@
+[
+  {
+    "file": "MDR_SAFE_College_Report.tex",
+    "bytes": 142920,
+    "sha256": "ad794055569acac200f92165c39188ace386bca80f057c74395fdac1c08c2686"
+  },
+  {
+    "file": "README.md",
+    "bytes": 3669,
+    "sha256": "25af51a7f97c0d7d65dd53680d2e471698d39074c2ea25175dc6b5d42be654bc"
+  },
+  {
+    "file": "CONTENT_VALIDATION.json",
+    "bytes": 921,
+    "sha256": "1ad2cfd21cd3c9149759505d98bead0192f34b00f6722af1ac40ab0db5575acd"
+  },
+  {
+    "file": "SOURCE_CHECKS.json",
+    "bytes": 558,
+    "sha256": "b20ab931d32b0f303211c9c3ddb5a690c65d29b1e6dd631ccd7d6ed44d04d4eb"
+  },
+  {
+    "file": "assets/logos/sahyadri.png",
+    "bytes": 37575,
+    "sha256": "b77720a1379de712eb2303e7829d3b94fb8c550ade43bef98ee1712b0083cff4"
+  },
+  {
+    "file": "assets/logos/vtu.jpg",
+    "bytes": 9856,
+    "sha256": "c81f0737bced8cfbf88766add205bb851a4e9a78975512208c616b9c921a0357"
+  },
+  {
+    "file": "assets/screenshots/contact-investigation.jpg",
+    "bytes": 125962,
+    "sha256": "a99d1a3bfd5ab987329f08e828f36d6871669259ea7ee413cd03bed783e6e168"
+  },
+  {
+    "file": "assets/screenshots/dashboard.jpg",
+    "bytes": 118618,
+    "sha256": "8dbd1f743c53ff29ef84737fad9748581f551c71a7c1b7d2c162e9063e3617a2"
+  },
+  {
+    "file": "assets/screenshots/gateway.jpg",
+    "bytes": 121745,
+    "sha256": "d0c1b34788ec22b402a80d9e4250a319882b4ebf5d69a814c134c428e381f23c"
+  },
+  {
+    "file": "assets/screenshots/live-simulation.jpg",
+    "bytes": 94352,
+    "sha256": "1fb8ce570f4feee7fbb6f73dd7395247ebb5a57b6dda804dd4f3150786e59cdc"
+  },
+  {
+    "file": "assets/screenshots/risk-demonstration.jpg",
+    "bytes": 112886,
+    "sha256": "824b0022095ddb58ce122aa068a58a61bc4c518f46f106bccf19dbe23923ee71"
+  }
+]

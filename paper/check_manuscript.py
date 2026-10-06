@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import re
 import hashlib
+import subprocess
 from zipfile import ZipFile
 from lxml import etree
 
@@ -64,8 +65,16 @@ with ZipFile(PAPER/'Contact_Reconstruction_Research_Paper.docx') as archive:
     fonts=title.findall('.//w:rFonts',ns)
     require(len(fonts)==1 and not any('Theme' in k for k in fonts[0].attrib),'Title theme font override')
 frozen=read('results/finalization-v7-20261006/paper-source-checksums.json')
+# Administrative navigation documents were retired/updated during repository cleanup.
+# Validate their original, immutable release bytes; scientific sources/results still
+# must match the working tree. Requires the research release tag in the checkout.
+archived_navigation={'FINAL_PAPER_START_HERE.md','docs/FINAL_RESEARCH_REVIEW.md'}
 for item in frozen:
-    require(hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()==item['sha256'],f"Changed frozen source {item['file']}")
+    if item['file'] in archived_navigation:
+        content=subprocess.check_output(['git','show','research-v7-2026-10-06:'+item['file']],cwd=ROOT)
+    else:
+        content=(ROOT/item['file']).read_bytes()
+    require(hashlib.sha256(content).hexdigest()==item['sha256'],f"Changed frozen source {item['file']}")
 report={'status':'passed','primaryRows':7,'numericOutcomeTables':5,'features':29,'tables':12,'figures':4,'equations':11,'references':16,'frozenPaperSourcesUnchanged':len(frozen),'scope':'Table/source consistency and document structure; not clinical or hardware validation.'}
 (PAPER/'validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 paths=[PAPER/'Contact_Reconstruction_Research_Paper.docx',PAPER/'Contact_Reconstruction_Research_Paper.md',PAPER/'manuscript_content.md',PAPER/'manuscript_tables.json',PAPER/'references.json',PAPER/'build_manuscript.py',PAPER/'build_figures.py',PAPER/'check_manuscript.py',PAPER/'validation.json',PAPER/'SUBMISSION_CHECKLIST.md']

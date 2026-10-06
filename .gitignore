@@ -35,3 +35,8 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Regenerable exports and scratch logs
+/output/
+/test_output.txt
+/college-report/MDR_SAFE_College_Report_Package.zip
